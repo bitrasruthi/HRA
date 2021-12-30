@@ -7,14 +7,14 @@ const Footer = () => {
       <Row className="align-items-center justify-content-xl-between">
         <Col xl="6">
           <div className="copyright text-center text-xl-left text-muted">
-            © {new Date().getFullYear()}{" "}
+            © 2018
             <a
               className="font-weight-bold ml-1"
-              href="https://www.creative-tim.com?ref=adr-admin-footer"
+              href="https://www.codegene.io/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Creative Tim
+              Codegene 
             </a>
           </div>
         </Col>
@@ -27,13 +27,13 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Creative Tim
+                Codegene
               </NavLink>
             </NavItem>
 
             <NavItem>
               <NavLink
-                href="https://www.creative-tim.com/presentation?ref=adr-admin-footer"
+                href="https://www.codegene.io/#about"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -41,25 +41,6 @@ const Footer = () => {
               </NavLink>
             </NavItem>
 
-            <NavItem>
-              <NavLink
-                href="http://blog.creative-tim.com?ref=adr-admin-footer"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Blog
-              </NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink
-                href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md?ref=adr-admin-footer"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                MIT License
-              </NavLink>
-            </NavItem>
           </Nav>
         </Col>
       </Row>
