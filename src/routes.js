@@ -8,6 +8,7 @@ import Icons from "views/examples/Icons.js";
 import Logout from './components/Admin Files/Logout/logout';
 import AddNewEmp from '../src/components/Admin Files/Adding Employee/addNewEmp'
 import Employees from'../src/components/Admin Files/Employee List/emplist'
+import ELogin  from 'views/examples/ELogin.js';
 
 var routes = [
   {
@@ -19,7 +20,7 @@ var routes = [
   },
   {
     path: "/icons",
-    name: "Add Emp",
+    name: "Icons",
     icon: "ni ni-planet text-blue",
     component: AddNewEmp,
     layout: "/admin",
@@ -52,6 +53,14 @@ var routes = [
     component: Login,
     layout: "/auth",
   },
+  {
+    path: "/elogin",
+    name: "ELogin",
+    icon: "ni ni-key-25 text-info",
+    component: ELogin,
+    layout: "/auth",
+  },
+   
   {
     path: "/logout",
     name: "Logout",

@@ -12,7 +12,7 @@ import {
   Col,
 } from "reactstrap";
 
-const AdminNavbar = () => {
+const EmpNavbar = () => {
   return (
     <>
       <Navbar className="navbar-top navbar-horizontal navbar-dark" expand="md">
@@ -55,7 +55,7 @@ const AdminNavbar = () => {
               <NavItem>
                 <NavLink
                   className="nav-link-icon"
-                  to="/auth/elogin"
+                  to="/emp/elogin"
                   tag={Link}
                 >
                   <i className="ni ni-circle-08" />
@@ -77,4 +77,4 @@ const AdminNavbar = () => {
   );
 };
 
-export default AdminNavbar;
+export default EmpNavbar;

@@ -1,6 +1,6 @@
 import  Forms  from 'components/Common/form';
 import React from 'react';
-import auth from '../../services/authService'
+import empauth from '../../services/authService'
 import Joi from "joi-browser";
 import { toast } from 'react-toastify';
 
@@ -20,38 +20,41 @@ import {
   Col,
 } from "reactstrap";
 
-class Login extends Forms {
-  state = {  data: {Email: "", Password: ""} , errors: {} , loadstatus:false };
-  schema = {
-    Email: Joi.string().required().email(),
-    Password: Joi.string().min(5).required(),
-  };
-   
-  doSubmit = async () => {
-    await this.setState({ loadstatus: true })
-    try {
-      const { data } = this.state;
-       await auth.login(data.Email, data.Password);
-      this.props.history.push('/admin/index');
-      if (data) {
-        toast.success("Login Successful");
+class ELogin extends Forms {
+    state = { data: { Email: "", Password: "" }, errors: {},loadstatus:false };
+    schema = {
+      Email: Joi.string().required().email(),
+      Password: Joi.string().required(),
+    };
+  
+    doSubmit = async () => {
+      await this.setState({ loadstatus: true })
+  
+      try {
+        const { data } = this.state;
+        const jwt = await empauth.login(data.Email, data.Password);
+        console.log(jwt);
+        // this.props.history.push('/');
+        if (jwt.token) {
+          toast.success("Login Successful");
+          setTimeout(() => {
+            window.location = state ? state.from.pathname : "/admin/index";
+          }, 2000);
+          const { state } = this.props.location;
+        } else {
+          toast(jwt.data);
+        }
+      } catch (ex) {
+        if (ex.response && ex.response.status === 400) {
+          const errors = { ...this.state.errors };
+          errors.Email = ex.response.data.data;
+          await this.setState({ errors });
+          setTimeout( async () => {
+            await this.setState({ loadstatus: false })     
+            }, 2000);
+        }
       }
-      setTimeout(() => {
-        window.location = state ? state.from.pathname : "/admin/index";
-      }, 2000);
-      const { state } = this.props.location;
-    } catch (ex) {
-      if (ex.response && ex.response.status === 400) {
-        const errors = { ...this.state.errors };
-        errors.Email = ex.response.data.data;
-         await this.setState({ errors });
-        setTimeout( async () => {
-        await this.setState({ loadstatus: false })     
-        }, 2000);
-      }
-    }
-  };
-
+    };
 
   render() {  
   return (
@@ -60,7 +63,7 @@ class Login extends Forms {
         <Card className="bg-secondary shadow border-0">
           <CardHeader>
             <div className="text-center text-muted mb-4">
-              <h2>Admin Login</h2>
+              <h2>Employee Login</h2>
             </div>
             </CardHeader>
          
@@ -103,4 +106,4 @@ class Login extends Forms {
 }
 };
 
-export default Login;
+export default ELogin;

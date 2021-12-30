@@ -4,14 +4,16 @@ import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 
 // core components
-import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 
 import routes from "routes.js";
+import EmpNavbar from './../components/Navbars/EmpNavbar';
 
-const Auth = (props) => {
+const Emp = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
+  
+
 
   React.useEffect(() => {
     document.body.classList.add("bg-default");
@@ -27,7 +29,7 @@ const Auth = (props) => {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/auth") {
+      if (prop.layout === "/emp") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -44,7 +46,7 @@ const Auth = (props) => {
   return (
     <>
       <div className="main-content" ref={mainContent}>
-        <AuthNavbar />
+        <EmpNavbar/>
         <div className="header bg-gradient-success py-7 py-lg-6">
           <Container>
             <div className="header-body text-center mb-7">
@@ -65,7 +67,7 @@ const Auth = (props) => {
               y="0"
             >
               <polygon
-                className="fill-default"
+                className="fill-purple"
                 points="2560 0 2560 100 0 100"
               />
             </svg>
@@ -76,7 +78,7 @@ const Auth = (props) => {
           <Row className="justify-content-center">
             <Switch>
               {getRoutes(routes)}
-              <Redirect from="*" to="/auth/login" />
+              <Redirect from="*" to="/emp/elogin" />
             </Switch>
           </Row>
         </Container>
@@ -86,4 +88,4 @@ const Auth = (props) => {
   );
 };
 
-export default Auth;
+export default Emp;
