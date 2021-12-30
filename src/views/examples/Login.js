@@ -1,22 +1,10 @@
-/*!
+import  Forms  from 'components/Common/form';
+import React from 'react';
+import auth from '../../services/authService'
+import Joi from "joi-browser";
+import { toast } from 'react-toastify';
 
-=========================================================
-* Argon Dashboard React - v1.2.1
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
-// reactstrap components
 import {
   Button,
   Card,
@@ -32,7 +20,40 @@ import {
   Col,
 } from "reactstrap";
 
-const Login = () => {
+class Login extends Forms {
+  state = {  data: {Email: "", Password: ""} , errors: {} , loadstatus:false };
+  schema = {
+    Email: Joi.string().required().email(),
+    Password: Joi.string().min(5).required(),
+  };
+   
+  doSubmit = async () => {
+    await this.setState({ loadstatus: true })
+    try {
+      const { data } = this.state;
+       await auth.login(data.Email, data.Password);
+      this.props.history.push('/admin/index');
+      if (data) {
+        toast.success("Login Successful");
+      }
+      setTimeout(() => {
+        window.location = state ? state.from.pathname : "/admin/index";
+      }, 2000);
+      const { state } = this.props.location;
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        errors.Email = ex.response.data.data;
+         await this.setState({ errors });
+        setTimeout( async () => {
+        await this.setState({ loadstatus: false })     
+        }, 2000);
+      }
+    }
+  };
+
+
+  render() {  
   return (
     <>
       <Col lg="5" md="7">
@@ -82,35 +103,11 @@ const Login = () => {
             <div className="text-center text-muted mb-4">
               <small>Or sign in with credentials</small>
             </div>
-            <Form role="form">
-              <FormGroup className="mb-3">
-                <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
-                    <InputGroupText>
-                      <i className="ni ni-email-83" />
-                    </InputGroupText>
-                  </InputGroupAddon>
-                  <Input
-                    placeholder="Email"
-                    type="email"
-                    autoComplete="new-email"
-                  />
-                </InputGroup>
-              </FormGroup>
-              <FormGroup>
-                <InputGroup className="input-group-alternative">
-                  <InputGroupAddon addonType="prepend">
-                    <InputGroupText>
-                      <i className="ni ni-lock-circle-open" />
-                    </InputGroupText>
-                  </InputGroupAddon>
-                  <Input
-                    placeholder="Password"
-                    type="password"
-                    autoComplete="new-password"
-                  />
-                </InputGroup>
-              </FormGroup>
+            <Form role="form" onSubmit={this.handleSubmit}>
+            
+            {this.renderInput("Email", "Email Id")}           
+            {this.renderInput("Password", "Password", "Password")}
+
               <div className="custom-control custom-control-alternative custom-checkbox">
                 <input
                   className="custom-control-input"
@@ -125,7 +122,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="text-center">
-                <Button className="my-4" color="primary" type="button">
+                <Button className="my-4" color="primary" type="submit" >
                   Sign in
                 </Button>
               </div>
@@ -155,6 +152,7 @@ const Login = () => {
       </Col>
     </>
   );
+}
 };
 
 export default Login;
