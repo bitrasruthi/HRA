@@ -33,10 +33,10 @@ const Header = () => {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          Total Employees
+                          Emp Count
                         </CardTitle>
                         <span className="cardtry h2 font-weight-bold mb-0">
-                          {data.count || "loading..."}
+                        {data.count ? data.count : 'loding..' }
                         </span>
                       </div>
                       <Col className="col-auto">
@@ -63,9 +63,9 @@ const Header = () => {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          New users
+                          Month Hours
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0"></span>
+                        <span className="h2 font-weight-bold mb-0"> {data.total ? data.total.totalLastMonthHours : 'loding..' }</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -75,9 +75,9 @@ const Header = () => {
                     </Row>
                     <p className="mt-3 mb-0 text-muted text-sm">
                       <span className="text-danger mr-2">
-                        <i className="fas fa-arrow-down" /> 3.48%
+                        <i className="fas fa-arrow-down" /> 
                       </span>{" "}
-                      <span className="text-nowrap">Since last week</span>
+                      <span className="text-nowrap">Week</span>
                     </p>
                   </CardBody>
                 </Card>
@@ -91,9 +91,9 @@ const Header = () => {
                           tag="h5"
                           className="text-uppercase text-muted mb-0"
                         >
-                          Sales
+                          Week
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0"></span>
+                        <span className="h2 font-weight-bold mb-0"> {data.total ? data.total.totalLastWeekHours : 'loding..' }</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-yellow text-white rounded-circle shadow">
