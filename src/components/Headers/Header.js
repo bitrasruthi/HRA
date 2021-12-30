@@ -7,14 +7,13 @@ import React from 'react';
 
 
 const Header = () => {
-  const [count, setCount] = useState(0);
   const [data, setdata] = useState({});
   
   const counter = useSelector( (state) => state)
   
   React.useEffect(async () => { 
   if(!counter.getthrslist)  await get_hrslist()
-       setdata(counter.getthrslist)
+       await setdata(counter.getthrslist)
      console.log(data)
   })
 
@@ -66,7 +65,7 @@ const Header = () => {
                         >
                           New users
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">{data.total.totalLastMonthHours}</span>
+                        <span className="h2 font-weight-bold mb-0"></span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -94,7 +93,7 @@ const Header = () => {
                         >
                           Sales
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0">{data.total.totalLastWeekHours}</span>
+                        <span className="h2 font-weight-bold mb-0"></span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-yellow text-white rounded-circle shadow">
