@@ -17,7 +17,7 @@ var routes = [
   },
   {
     path: "/icons",
-    name: "Icons",
+    name: "Add Emp",
     icon: "ni ni-planet text-blue",
     component: Icons,
     layout: "/admin",
