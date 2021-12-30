@@ -13,7 +13,6 @@ import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 
 ReactDOM.render(
-  <React.StrictMode>
       <Provider store = {store}>
   <BrowserRouter>
     <Switch>
@@ -23,6 +22,5 @@ ReactDOM.render(
     </Switch>
   </BrowserRouter>
   </Provider>,
-  </React.StrictMode>,
   document.getElementById("root")
 );
