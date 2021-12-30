@@ -3,12 +3,13 @@ import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import get_employeelist, { get_moreemployeelist } from "../../../reduxstore/actions/employeeAction";
-import EmployeeTable from "./emplisttable";
-import Sidebar from "../../Sidebar/Sidebar";
+import EmployeeTable from "../Employee List/emplisttable";
 
 import { toast } from "react-toastify";
-import ReactLoading from "react-loading";
 import { Col } from "reactstrap";
+import { Card, Container, Row } from "reactstrap";
+import Header from "components/Headers/Header.js";
+
 
 
 
@@ -100,32 +101,31 @@ class Employees extends React.Component {
 
 
     return (
-      <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-        className=" py-2 py-sm-3 ">
-        <Sidebar />
-        <h1 style={{ textAlign: 'center', marginLeft: '150px', color: '#F3A4B4' }}>Employee List</h1>
+      <>
+        <Header />
+        {/* Page content */}
+        <Container className="mt--7" fluid>
+          <Row>
+            <div className="col">
+              <Card className="shadow ">
 
-        <Col lg="9" md="9" style={{ width: '994px', marginLeft: "rem", paddingTop: "px", position: 'absolute' }}>
+                <Col className="px-lg-4 py-sm-5" >
 
-          <EmployeeTable
-            employees={data}
-            sortColumn={sortColumn}
-            onSort={this.handleSort}
-            onload={this.onloadmore}
-            disabled={this.state.loadstatus}
-            loading={this.state.loading}
-          // onDelete={this.handleDelete}
-          />
-        </Col>
-        {/* </Col> */}
-
-        {/* <Paginations
-          itemsCount={totalCount}
-          pageSize={pageSize}
-          currentPage={currentPage}
-          onPageChange={this.handlePageChange}
-        /> */}
-      </div>
+                  <EmployeeTable
+                    employees={data}
+                    sortColumn={sortColumn}
+                    onSort={this.handleSort}
+                    onload={this.onloadmore}
+                    disabled={this.state.loadstatus}
+                    loading={this.state.loading}
+                  // onDelete={this.handleDelete}
+                  />
+                </Col>
+              </Card>
+            </div>
+          </Row>
+        </Container>
+      </>
     );
   }
 }

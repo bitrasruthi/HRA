@@ -6,6 +6,8 @@ import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 import Logout from './components/Admin Files/Logout/logout';
+import AddNewEmp from '../src/components/Admin Files/Adding Employee/addNewEmp'
+import Employees from'../src/components/Admin Files/Employee List/emplist'
 
 var routes = [
   {
@@ -19,14 +21,14 @@ var routes = [
     path: "/icons",
     name: "Add Emp",
     icon: "ni ni-planet text-blue",
-    component: Icons,
+    component: AddNewEmp,
     layout: "/admin",
   },
   {
     path: "/maps",
     name: "Maps",
     icon: "ni ni-pin-3 text-orange",
-    component: Maps,
+    component: Employees,
     layout: "/admin",
   },
   {

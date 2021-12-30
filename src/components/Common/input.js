@@ -18,6 +18,7 @@ const Inputs = ({name, error, label, max,min, ...rest}) => {
                 {/* <InputGroup className="input-group-alternative"> */}
                  
                   <input  {...rest}
+                  
                            max={max}
                            min={min}
                             id={name} 

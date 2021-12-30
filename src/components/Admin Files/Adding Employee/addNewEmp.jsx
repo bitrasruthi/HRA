@@ -1,25 +1,26 @@
-import Sidebar from 'components/Sidebar/Sidebar';
 import React from 'react'
 import { register } from "../../../services/userService";
-import get_employeelist from 'reduxstore/actions/employeeAction';
 import Joi from 'joi-browser';
 import { toast } from "react-toastify";
 import Forms from 'components/Common/form';
+
+
 import {
-  Button,
   Card,
   CardHeader,
   CardBody,
-  Form,
-  Col,
+  Container,
+  Row,
   FormGroup,
+  Button,
+  Form,
+  Input,
+  Col,
+  UncontrolledTooltip,
 } from "reactstrap";
 
 
-
-
-
-class AddNew extends Forms {
+class AddNewEmp extends Forms {
   state = {
     data: {
       EmployeeName: "",
@@ -123,65 +124,76 @@ class AddNew extends Forms {
 
     // this.props.history.push("/admin/addemployee");
   };
-
   render() {
-
     const { loadstatus, maxdate, mindate, today } = this.state
-    return <div>
-      <Sidebar />
-      {/* <NavBar/> */}
-      <Col lg="6" md="7" style={{ marginLeft: "20%", paddingTop: "auto", position: 'absolute' }}>
-        <Card className="bg-secondary shadow border-0" >
-          <CardHeader className="bg-gradient-success border-0">
-            <Col style={{ marginLeft: '200px', paddingBottom: '10px' }} xs="8">
-              <h3 className="mb--3">Add New Employee</h3>
-            </Col>
 
-          </CardHeader>
-          <CardBody className="px-lg-3 py-sm-5">
-            <Form role="form" onSubmit={this.handleSubmit}>
-              <Col sm={{ size: 6 }} style={{ marginLeft: '3px', marginTop: '-0px' }}>
-                {this.renderInput("joiningDate", "Joining Date", "date", today)}
-              </Col>
+    return (
+      <Container className="mt-7" fluid>
+        {/* Table */}
+        <Row>
+          <div className="col">
+            <Card className="shadow border-0">
+              <CardHeader className="bg-transparent">
+                <h3 className="mb-0">Add New emp</h3>
+              </CardHeader>
+              <CardBody className="px-lg-4 py-sm-5">
+                <Form role="form" onSubmit={this.handleSubmit}>
+                  <Row>
+                    <Col lg="6">
+                      {this.renderInput("joiningDate", "Joining Date", "date", today)}
+                    </Col>
 
-              <Col sm={{ size: 6 }} style={{ marginLeft: '300px', marginTop: '-100px' }} className='mr-sm-2'>
-                {this.renderInput("EmployeeName", "Employee Name")}
-              </Col>
+                    <Col lg="6">
+                      {this.renderInput("EmployeeName", "Employee Name")}
+                    </Col>
+                  </Row>
 
-              <Col sm={{ size: 6 }} style={{ marginLeft: '3px', marginTop: '-0px' }}>
-                {this.renderInput("Phone", "Phone")}
-              </Col>
+                  <Row>
+                    <Col lg="6">
+                      {this.renderInput("Phone", "Phone")}
+                    </Col>
 
-              <Col sm={{ size: 6 }} style={{ marginLeft: '300px', marginTop: '-100px' }} className='mr-sm-2'>
-                {this.renderInput("Email", "Email ID")}
-              </Col>
+                    <Col lg="6">
+                      {this.renderInput("Email", "Email ID")}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg="6">
+                      {this.renderInput("Role", "Designation")}
+                    </Col>
 
-              <Col sm={{ size: 6 }} style={{ marginLeft: '3px', marginTop: '-0px' }}>
-                {this.renderInput("Role", "Designation")}
-              </Col>
+                    <Col lg="6">
+                      {this.renderInput("DateOfBirth", "Date Of Birth", "date", maxdate,)}
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg="6">
+                      {this.renderInput("NetSalary", "Net Salary")}
+                    </Col>
 
-              <Col sm={{ size: 6 }} style={{ marginLeft: '300px', marginTop: '-100px' }} className='mr-sm-2'>
-                {this.renderInput("DateOfBirth", "Date Of Birth", "date", maxdate,)}
-              </Col>
+                    <Col lg="6">
+                      {this.renderInput("AgreementYears", "Agreement Years", 'number', '3', '0')}
+                    </Col>
+                  </Row>
+                  <Col className="text-right" xs="4" >
+                    <Button disabled={loadstatus}
+                      className="float-right , text-center"
+                      color="default"
+                    >
+                      Add
+                    </Button>
+                  </Col>
+                </Form>
+              </CardBody>
+            </Card>
+          </div>
+        </Row>
+      </Container>
+    )
 
-              <Col sm={{ size: 6 }} style={{ marginLeft: '3px', marginTop: '-0px' }}>
-                {this.renderInput("NetSalary", "Net Salary")}
-              </Col>
-
-              <Col sm={{ size: 6 }} style={{ marginLeft: '300px', marginTop: '-100px' }} className='mr-sm-2'>
-                {this.renderInput("AgreementYears", "Agreement Years", 'number', '3', '0')}
-              </Col>
-              <Col row style={{ marginLeft: '250px', marginTop: '0px', marginBottom: '0px' }} >
-                <Button disabled={loadstatus} style={{ background: '#2DCECB', color: 'black', border: 'none' }} className="my-2" color="primary" type="submit">
-                  Add
-                </Button>
-              </Col>
-            </Form>
-          </CardBody>
-        </Card>
-      </Col>
-    </div>;
   }
+
 }
 
-export default AddNew;
+export default AddNewEmp;
+
