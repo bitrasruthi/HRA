@@ -68,44 +68,41 @@ class ApproveReject extends Forms {
   render() {
     console.log(this.props.getleavelist[0].EmployeeName)
     return (
-      <div style={{ marginTop: '0px', height: '430px', width: '350px', marginRight: "-0px" }}  >
-        <Col lg="9" md="9" style={{
-          marginLeft: '25px',
-          height: '400px', width: '650px', marginRight: "-0px", paddingTop: "auto", position: 'absolute', marginTop: '20px',
-        }}>
+      <div  >
+        <Col lg="9" md="9" >
           <Card className="bg-secondary shadow border-0" >
             <CardHeader className="bg-gradient-success border-0">
-              <Col style={{ marginLeft: '30px', paddingBottom: '10px' }} xs="9">
+              <Col xs="9">
                 <h3 className="mb--3">Leave Action</h3>
               </Col>
             </CardHeader>
-            <CardBody style={{ textAlign: 'center' }} className="px-lg-3 py-sm-5">
-              <div style={{ textAlign: 'center' }} className="row">
+            <CardBody  className="px-lg-3 py-sm-5">
+              <div  className="row">
                 <h3>Name: </h3>
-                <p style={{ marginLeft: '10px' }}>{this.props.getleavelist[0].EmployeeName}</p>
+                <p >{this.props.getleavelist[0].EmployeeName}</p>
               </div>
               <div className="row">
                 <h3>From Date: </h3>
-                <p style={{ marginLeft: '10px' }}>{this.props.getleavelist[0].from_Date}</p>
+                <p>{this.props.getleavelist[0].from_Date}</p>
               </div>
               <div className="row">
                 <h3>To Date: </h3>
-                <p style={{ marginLeft: '10px' }}>{this.props.getleavelist[0].to_Date}</p>
+                <p >{this.props.getleavelist[0].to_Date}</p>
               </div>
               <div className="row">
                 <h3>Subject: </h3>
-                <p style={{ marginLeft: '10px' }}>{this.props.getleavelist[0].subject}</p>
+                <p >{this.props.getleavelist[0].subject}</p>
               </div>
               <div className="row">
                 <h3>Reason: </h3>
-                <p style={{ marginLeft: '10px' }}>{this.props.getleavelist[0].reason}</p>
+                <p >{this.props.getleavelist[0].reason}</p>
               </div>
-              <div style={{ marginTop: '15px' }}>
-                <Button style={{ marginLeft: '0px', marginTop: '0px', background: '#2DCE8A', border: 'none' }}
+              <div >
+                <Button 
                   variant="contained" onClick={this.onApprove}>
                   Approve
                 </Button>
-                <Button style={{ marginLeft: '', marginTop: '0px', background: '#2DCECA', border: 'none' }} variant="contained" onClick={this.onReject}>
+                <Button  variant="contained" onClick={this.onReject}>
                   Reject
                 </Button>
               </div>

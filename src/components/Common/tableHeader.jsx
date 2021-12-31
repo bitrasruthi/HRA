@@ -23,8 +23,8 @@ class TableHeader extends React.Component {
       <thead className="bg-gradient-pink">
         <tr>
           {this.props.columns.map((column) => (
-            <th
-              style={{ fontSize: "15px", color: "white" }}
+            <th className="text-center"
+              
               key={column.path || column.key}
               onClick={() => this.raiseSort(column.path)}
             >

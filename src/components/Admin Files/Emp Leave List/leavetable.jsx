@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 import { leavestatus } from "../../../services/leaveService";
 import { toast } from "react-toastify";
 import ApproveReject from './approvereject';
+import 'react-responsive-modal/styles.css';
+
 
 
 
@@ -60,32 +62,12 @@ class LeaveTable extends React.Component {
 
         <button className={`btn btn-sm btn-${emp.status === 'pending' ? 'dark' : 
         `${emp.status === 'Rejected' ? 'danger'  : 'success'}`}`} onClick={() => this.onClickButton(emp)}>
-          <Link style={{ color: 'white' }} to={`/leavelist/${emp._id}`}> {emp.status}
+          <Link style={{ color: 'white' }} to={`/admin/user-profile/${emp._id}`}> {emp.status}
           </Link></button>
       ),
     },
 
   ];
-
-  onApprove = async () => {
-    try {
-      var leave = { ...this.state.leave };
-
-      const app = <p tyle={{ color: 'green' }}>Approved</p>
-      // console.log(app.props.children);
-      leave.status = app.props.children;
-      await this.setState({ leave });
-      // toast.success('Leave Approved')
-      // console.log(leave._id);
-      await leavestatus({ _id: leave._id, status: leave.status });
-      window.location = "/leavelist";
-    } catch (ex) {
-      if (ex.response && ex.response.status === 404) {
-        toast.error(ex.response.data.data);
-      }
-    }
-  };
-
 
   async componentDidMount() {
 

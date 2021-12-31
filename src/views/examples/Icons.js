@@ -128,14 +128,15 @@ class Icons extends Forms {
     const { loadstatus, maxdate, mindate, today } = this.state
 
     return (
-      <Container className="mt-3" fluid>
+      <>
+      <Container className="" fluid>
         {/* Table */}
         <Row>
-          <div className="col">
-            <Card className="shadow">
+          <div className="col ">
+            <Card className="mt-8 shadow">
               <CardHeader className="bg-transparent">
-                <h3 className="mb-0">Add New emp</h3>
-              </CardHeader>
+                <h3 className="mb-0">Enter Employee Details Below:</h3>
+              </CardHeader> 
               <CardBody className="px-lg-3 py-sm-5">
             <Form role="form" onSubmit={this.handleSubmit}> 
             <Row> 
@@ -177,7 +178,7 @@ class Icons extends Forms {
               </Row>
               <Col className="text-right" xs="4" >
                 <Button disabled={loadstatus}
-                className="float-right , text-center"
+                className="text-center"
                 color="default"
                 >
                   Add
@@ -189,6 +190,7 @@ class Icons extends Forms {
           </div>
         </Row>
       </Container>
+      </>
       )
    
     }

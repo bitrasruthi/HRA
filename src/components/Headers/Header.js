@@ -36,7 +36,7 @@ const Header = () => {
                           Emp Count
                         </CardTitle>
                         <span className="cardtry h2 font-weight-bold mb-0">
-                        {data.count ? data.count : 'loding..' }
+                        {data.count ? data.count : 'loading..' }
                         </span>
                       </div>
                       <Col className="col-auto">
@@ -65,7 +65,7 @@ const Header = () => {
                         >
                           Month Hours
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0"> {data.total ? data.total.totalLastMonthHours : 'loding..' }</span>
+                        <span className="h2 font-weight-bold mb-0"> {data.total ? data.total.totalLastMonthHours : 'loading..' }</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -93,7 +93,7 @@ const Header = () => {
                         >
                           Week
                         </CardTitle>
-                        <span className="h2 font-weight-bold mb-0"> {data.total ? data.total.totalLastWeekHours : 'loding..' }</span>
+                        <span className="h2 font-weight-bold mb-0"> {data.total ? data.total.totalLastWeekHours : 'loading..' }</span>
                       </div>
                       <Col className="col-auto">
                         <div className="icon icon-shape bg-yellow text-white rounded-circle shadow">

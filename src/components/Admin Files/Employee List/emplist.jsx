@@ -109,7 +109,7 @@ class Employees extends React.Component {
             <div className="col">
               <Card className="shadow ">
 
-                <Col className="px-lg-4 py-sm-5" >
+                <Col className="px-lg-9 px-sm-5" >
 
                   <EmployeeTable
                     employees={data}

@@ -175,14 +175,9 @@ class AddNewEmp extends Forms {
                       {this.renderInput("AgreementYears", "Agreement Years", 'number', '3', '0')}
                     </Col>
                   </Row>
-                  <Col className="text-right" xs="4" >
-                    <Button disabled={loadstatus}
-                      className="float-right , text-center"
-                      color="default"
-                    >
+                    <Button className='text-center' disabled={loadstatus} color="default">
                       Add
                     </Button>
-                  </Col>
                 </Form>
               </CardBody>
             </Card>

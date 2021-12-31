@@ -37,16 +37,14 @@ class TableFooter extends React.Component {
     // const notify = () => toast("Login Successful");
     if (!disabled) {
       return (
-        <Button className="bg-gradient-pink" variant="contained" onClick={onload} style={{
-          zIndex: '', marginLeft: '0px', border: 'none'
-        }}>
+        <Button  className="bg-gradient-pink" variant='contained' onClick={onload} >
           more
         </Button>
       );
     }
 
-    else if (!loading) return <h2 style={{ color: '#F3A4B4' }}>Loading...</h2>;
-    else return <h2 style={{ color: '#F3A4B4' }}>No More Data</h2>
+    else if (!loading) return <h2 >Loading...</h2>;
+    else return <h2 >No More Data</h2>
 
   }
 
@@ -54,7 +52,7 @@ class TableFooter extends React.Component {
     const { onload, disabled, loading } = this.props;
     return (
       <>
-        <tfoot className="table-responsive" >
+        <tfoot  className="text-center table-responsive " >
 
           {this.renderLoadButton(disabled, onload, loading)}
 

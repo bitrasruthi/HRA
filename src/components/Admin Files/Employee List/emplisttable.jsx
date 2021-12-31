@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import { Spinner } from '../spinner';
 import DeleteEmp from '../Terminate Emp/deleteEmp';
 import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 
 
 class EmployeeTable extends React.Component {
@@ -51,7 +52,7 @@ class EmployeeTable extends React.Component {
       label: 'Actions',
       content: (emp) => (
         <button className="btn bg-pink btn-sm" onClick={() => this.onClickButton(emp)} >
-          <Link style={{ color: 'white' }} to={`/emplist/${emp.EmployeeId}`}>
+          <Link style={{ color: 'white' }} to={`/admin/maps/${emp.EmployeeId}`}>
             Terminate</Link></button>
       ),
     }

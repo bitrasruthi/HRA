@@ -52,7 +52,7 @@ const Emp = (props) => {
             <div className="header-body text-center mb-7">
               <Row className="justify-content-center">
                 <Col lg="5" md="5">
-                  <h1 className="text-white">Welcome! Please Login Here</h1>
+                  <h1 className="text-white">Welcome Employee! Please Login Here</h1>
                 </Col>
               </Row>
             </div>

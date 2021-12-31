@@ -9,6 +9,7 @@ import Logout from './components/Admin Files/Logout/logout';
 import AddNewEmp from '../src/components/Admin Files/Adding Employee/addNewEmp'
 import Employees from'../src/components/Admin Files/Employee List/emplist'
 import ELogin  from 'views/examples/ELogin.js';
+import LeaveList from "views/examples/Profile";
 
 var routes = [
   {
@@ -20,28 +21,28 @@ var routes = [
   },
   {
     path: "/icons",
-    name: "Icons",
+    name: "Add New Employee",
     icon: "ni ni-planet text-blue",
-    component: AddNewEmp,
+    component: Icons,
     layout: "/admin",
   },
   {
     path: "/maps",
-    name: "Maps",
+    name: "Employee List",
     icon: "ni ni-pin-3 text-orange",
-    component: Employees,
+    component: Maps,
     layout: "/admin",
   },
   {
     path: "/user-profile",
-    name: "User Profile",
+    name: "Leave List",
     icon: "ni ni-single-02 text-yellow",
-    component: Profile,
+    component: LeaveList,
     layout: "/admin",
   },
   {
     path: "/tables",
-    name: "Tables",
+    name: "Terminated List",
     icon: "ni ni-bullet-list-67 text-red",
     component: Tables,
     layout: "/admin",

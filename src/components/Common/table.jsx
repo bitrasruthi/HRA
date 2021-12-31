@@ -26,20 +26,17 @@ class Table extends React.Component {
     const { columns, sortColumn, onSort, data, onload, disabled, loading } = this.props;
     return (
 
-      <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-        className=" py-4 py-sm-3 ">
-        <table style={{ marginTop: 'px', marginLeft: '20rem', textAlign: 'center' }} className="table table-bordered table-responsive">
-          <TableHeader
-            columns={columns}
-            sortColumn={sortColumn}
-            onSort={onSort}
-          />
+      <div 
+        className=" px-2 py-sm-3 ">
+        <table className="table table-bordered table-responsive-sm">
+          <TableHeader columns={columns} sortColumn={sortColumn} onSort={onSort}/>
 
           <TableBody columns={columns} data={data} onload={onload} disabled={disabled} />
-          <div style={{ width: '100%' }}>
-            <TableFooter onload={onload} disabled={disabled} loading={loading} />
-          </div>
+
+
         </table>
+            <TableFooter  onload={onload} disabled={disabled} loading={loading} />
+       
 
       </div>
       // </div>
