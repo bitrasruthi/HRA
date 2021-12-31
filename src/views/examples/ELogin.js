@@ -1,6 +1,6 @@
 import  Forms  from 'components/Common/form';
 import React from 'react';
-import empauth from '../../services/authService'
+import empauth from '../../services/empservice'
 import Joi from "joi-browser";
 import { toast } from 'react-toastify';
 
@@ -38,9 +38,8 @@ class ELogin extends Forms {
         if (jwt.token) {
           toast.success("Login Successful");
           setTimeout(() => {
-            window.location = state ? state.from.pathname : "/admin/index";
+            window.location = "/admin/index";
           }, 2000);
-          const { state } = this.props.location;
         } else {
           toast(jwt.data);
         }
@@ -59,9 +58,9 @@ class ELogin extends Forms {
   render() {  
   return (
     <>
-      <Col lg="5" md="7">
+      <Col lg="" md="">
         <Card className="bg-secondary shadow border-0">
-          <CardHeader>
+          <CardHeader className='bg-gradient-purple'>
             <div className="text-center text-muted mb-4">
               <h2>Employee Login</h2>
             </div>

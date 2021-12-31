@@ -55,7 +55,7 @@ const AdminNavbar = () => {
               <NavItem>
                 <NavLink
                   className="nav-link-icon"
-                  to="/auth/elogin"
+                  to="/empauth/elogin"
                   tag={Link}
                 >
                   <i className="ni ni-circle-08" />

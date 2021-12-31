@@ -10,8 +10,9 @@ import AuthFooter from "components/Footers/AuthFooter.js";
 import routes from "routes.js";
 import routes2 from './../routes2';
 import Login  from 'views/examples/Login.js';
+import ELogin  from 'views/examples/ELogin.js';
 
-const Auth = (props) => {
+const EmpAuth = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
 
@@ -29,7 +30,7 @@ const Auth = (props) => {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/auth") {
+      if (prop.layout === "/empauth") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -44,7 +45,7 @@ const Auth = (props) => {
   };
   const getRoutes2 = (routes2) => {
     return routes2.map((prop, key) => {
-      if (prop.layout === "/auth") {
+      if (prop.layout === "/empauth") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -72,7 +73,7 @@ const Auth = (props) => {
                 </Row>
                 <Row className="justify-content-center">
                 <Col lg="5"  md="">
-                <Login/>
+                <ELogin/>
                 </Col>
                 </Row>
             
@@ -100,7 +101,7 @@ const Auth = (props) => {
             <Switch>
               {getRoutes(routes)}
               {getRoutes2(routes2)}
-              <Redirect from="*" to="/auth/login" />
+              <Redirect from="*" to="/empauth/elogin" />
             </Switch>
           </Row>
         </Container>
@@ -110,4 +111,4 @@ const Auth = (props) => {
   );
 };
 
-export default Auth;
+export default EmpAuth;
