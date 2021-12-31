@@ -1,4 +1,4 @@
-import Table from "../Common/table";
+import Table from "../../../Common/table";
 import React from "react";
 import DeleteHoil from "./deleteholi";
 import { Link } from "react-router-dom";

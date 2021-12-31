@@ -5,13 +5,14 @@ import Forms from 'components/Common/form';
 import _ from "lodash";
 import HoliTable from "./holidaysTable";
 import { connect } from "react-redux";
-import get_hoildays from "../../reduxstore/actions/hoildaysActions";
-import { postholidays } from '../../services/settings'
-import ReactLoading from "react-loading";
+import get_hoildays from "../../../../reduxstore/actions/hoildaysActions";
+import { postholidays } from '../../../../services/settings'
 import { toast } from 'react-toastify'
 
 import {
   Button,
+  Container,
+  Row,
   Card,
   CardBody,
   Form,
@@ -91,15 +92,12 @@ class Holidays extends Forms {
   render() {
     const { sortColumn, holidays } = this.state;
     return (
-      <div>
-        <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-          className=" py-2 py-sm-3 ">
-          <Sidebar />
-          <h1 style={{ textAlign: 'center', marginLeft: '-30px', color: '#F3A4B4' }}>Holiday List</h1>
-
-          <Col lg="4" md="7" style={{ width: '440px', marginLeft: "10rem", paddingTop: "px", position: 'absolute', }}>
-
-
+      <>
+      {/* Page content */}
+      <Container className="" fluid>
+        <Row>
+          <div className="mt-8 col">
+            <Card className="shadow border-0">
             <HoliTable
               holidays={holidays}
               sortColumn={sortColumn}
@@ -107,30 +105,12 @@ class Holidays extends Forms {
               disabled={this.state.loadmore}
               loading={this.state.loading}
             />
-
-          </Col>
-
-          <Col lg="3" md="3" style={{ marginLeft: "75%", marginTop: "auto", position: "fixed", }}>
-            <Card className="card__wrap--inner bg-secondary shadow border-0">
-              <CardBody className="px-lg-3 py-sm-5">
-                <Form role="form" onSubmit={this.handleSubmit}>
-
-                  {this.renderInput("date", "Date", 'date')}
-                  {this.renderInput("festival", "Festival")}
-
-
-                  <div className="text-center">
-                    {/* {this.renderButton("Add Hoilday")} */}
-                    <Button className="bg-gradient-pink" style={{ marginLeft: '0px', marginTop: '0px', background: '#2DCE8A', color: 'white', border: 'none' }} variant="contained" onClick={this.onApprove}>
-                      Add Holiday
-                    </Button>
-                  </div>
-                </Form>
-              </CardBody>
             </Card>
-          </Col>
-        </div>
-      </div>
+            </div>
+            </Row>
+            </Container>
+            </>
+         
     );
   }
 }

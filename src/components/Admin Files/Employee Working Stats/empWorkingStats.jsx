@@ -10,6 +10,7 @@ import Hrstable from './empwortable';
 
 import {
   Button,
+  Container,
   Card,
   CardBody,
   CardTitle,
@@ -104,13 +105,12 @@ class EmpWorkingStas extends Forms {
 
   render() {
     const { sortColumn, employees } = this.state
-    return <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-      className=" py-5 py-sm-1 ">
-      <Sidebar />
-      <h1 style={{ textAlign: 'center', marginLeft: '-100px', color: '#F3A4B4' }}>Employee Working Status</h1>
-
-      <Col lg="9" md="7" style={{ width: '658px', marginLeft: "rem", paddingTop: "px", position: 'absolute', }}>
-
+    return  <>
+    {/* Page content */}
+    <Container className="mt" fluid>
+    <Row>
+        <div className="mt-8 col">
+          <Card className="shadow border-0">
         <Hrstable
           employees={employees}
           sortColumn={sortColumn}
@@ -118,9 +118,11 @@ class EmpWorkingStas extends Forms {
           disabled={this.state.loadmore}
           loading={this.state.loading}
         />
-      </Col>
-
-      <Col lg="3" md="3" style={{ marginLeft: "75%", marginTop: "auto", position: "fixed", }}>
+  </Card>
+  </div>
+  </Row>
+  </Container>
+      {/* <Col lg="3" md="3" style={{ marginLeft: "75%", marginTop: "auto", position: "fixed", }}>
         <Card className="card__wrap--inner bg-secondary shadow border-0">
           <CardBody className="px-lg-3 py-sm-5">
             <Form role="form" onSubmit={this.handleSubmit}>
@@ -144,9 +146,9 @@ class EmpWorkingStas extends Forms {
           </CardHeader>
 
         </Card>
-      </Col>
+      </Col> */}
+      </>
 
-    </div>;
   }
 }
 

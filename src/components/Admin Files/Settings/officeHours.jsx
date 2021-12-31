@@ -2,13 +2,14 @@ import Sidebar from 'components/Sidebar/Sidebar';
 import React from 'react';
 import Joi from "joi-browser";
 import { toast } from "react-toastify";
-import { save, gettime } from '../../services/settings'
+import { save, gettime } from '../../../services/settings'
 import Forms from 'components/Common/form';
 import {
     Button,
     Card,
     CardHeader,
     CardBody,
+    Container,
     Form,
     Row,
     Col,
@@ -56,11 +57,12 @@ class OfficeHours extends Forms {
 
 
     render() {
-        return <div>
-            <Sidebar />
-
-            <Col lg="6" md="7" style={{ marginLeft: "30%", paddingTop: "28px" }}>
-                <Card className="bg-secondary shadow border-0" >
+        return <>
+        {/* Page content */}
+        <Container className="" fluid>
+          <Row>
+            <div className="mt-8 col">
+              <Card className="shadow border-0">
                     <CardHeader className="bg-gradient-success">
                         <Row>
 
@@ -84,8 +86,10 @@ class OfficeHours extends Forms {
                         </Form>
                     </CardBody>
                 </Card>
-            </Col>
-        </div>;
+                </div>
+                </Row>
+                </Container>
+            </>
     }
 }
 

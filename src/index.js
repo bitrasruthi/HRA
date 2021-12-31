@@ -12,6 +12,7 @@ import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
 import App from './App';
 import EmpLayout  from 'layouts/Emp.js';
+import Holidays from './components/Admin Files/Settings/Holidays/holidays';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,7 +21,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
-      <Route path="/emp" render={(props) => <EmpLayout {...props} />} />
+
       <Redirect from="/" to="/admin/index" />
       <App/>
     </Switch>

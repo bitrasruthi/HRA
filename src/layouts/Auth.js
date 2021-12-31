@@ -8,6 +8,8 @@ import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 
 import routes from "routes.js";
+import routes2 from './../routes2';
+import Login  from 'views/examples/Login.js';
 
 const Auth = (props) => {
   const mainContent = React.useRef(null);
@@ -40,6 +42,21 @@ const Auth = (props) => {
       }
     });
   };
+  const getRoutes2 = (routes2) => {
+    return routes2.map((prop, key) => {
+      if (prop.layout === "/auth") {
+        return (
+          <Route
+            path={prop.layout + prop.path}
+            component={prop.component}
+            key={key}
+          />
+        );
+      } else {
+        return null;
+      }
+    });
+  };
 
   return (
     <>
@@ -52,7 +69,13 @@ const Auth = (props) => {
                 <Col lg="5" md="5">
                   <h1 className="text-white">Welcome! Please Login Here</h1>
                 </Col>
-              </Row>
+                </Row>
+                <Row className="justify-content-center">
+                <Col lg="5"  md="">
+                <Login/>
+                </Col>
+                </Row>
+            
             </div>
           </Container>
           <div className="separator separator-bottom separator-skew zindex-100">
@@ -76,6 +99,7 @@ const Auth = (props) => {
           <Row className="justify-content-center">
             <Switch>
               {getRoutes(routes)}
+              {getRoutes(routes2)}
               <Redirect from="*" to="/auth/login" />
             </Switch>
           </Row>

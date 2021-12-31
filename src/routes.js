@@ -10,6 +10,7 @@ import AddNewEmp from '../src/components/Admin Files/Adding Employee/addNewEmp'
 import Employees from'../src/components/Admin Files/Employee List/emplist'
 import ELogin  from 'views/examples/ELogin.js';
 import LeaveList from "views/examples/Profile";
+import EmpWorkingStas from './components/Admin Files/Employee Working Stats/empWorkingStats';
 
 var routes = [
   {
@@ -48,26 +49,14 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/login",
-    name: "Login",
+    path: "/workingstats",
+    name: "Working Stats",
     icon: "ni ni-key-25 text-info",
-    component: Login,
-    layout: "/auth",
+    component: EmpWorkingStas,
+    layout: "/admin",
   },
-  {
-    path: "/elogin",
-    name: "ELogin",
-    icon: "ni ni-key-25 text-info",
-    component: ELogin,
-    layout: "/auth",
-  },
+ 
    
-  {
-    path: "/logout",
-    name: "Logout",
-    icon: "ni ni-circle-08 text-pink",
-    component: Logout,
-    layout: "/auth",
-  },
+ 
 ];
 export default routes;

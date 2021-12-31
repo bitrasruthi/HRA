@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Forms from "../Common/form";
-import { deletehoil } from '../../services/settings'
+import Forms from "../../../Common/form";
+import { deletehoil } from '../../../../services/settings'
 import { toast } from "react-toastify";
 import { deleteEmp } from "services/authService";
 import Joi from 'joi-browser';

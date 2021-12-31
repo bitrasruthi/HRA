@@ -9,6 +9,8 @@ import AdminFooter from "components/Footers/AdminFooter.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 
 import routes from "routes.js";
+import routes2 from './../routes2';
+import Holidays from './../components/Admin Files/Settings/Holidays/holidays';
 
 const Admin = (props) => {
   const mainContent = React.useRef(null);
@@ -21,6 +23,22 @@ const Admin = (props) => {
   }, [location]);
 
   const getRoutes = (routes) => {
+    return routes.map((prop, key) => {
+      if (prop.layout === "/admin") {
+        return (
+          <Route
+            path={prop.layout + prop.path}
+            component={prop.component}
+            key={key}
+          />
+        );
+      } else {
+        return null;
+      }
+    });
+  };
+
+  const getRoutes2 = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
@@ -53,6 +71,7 @@ const Admin = (props) => {
       <Sidebar
         {...props}
         routes={routes}
+        routes2={routes2}
         logo={{
           innerLink: "/admin/index",
           imgSrc: require("../assets/img/brand/argon-react.png").default,
@@ -66,7 +85,10 @@ const Admin = (props) => {
         />
         <Switch>
           {getRoutes(routes)}
+          {getRoutes2(routes2)}
           <Redirect from="*" to="/admin/index" />
+          {/* <Route path="/admin/holidays" component={Holidays} /> */}
+
         </Switch>
         <Container fluid>
           <AdminFooter />

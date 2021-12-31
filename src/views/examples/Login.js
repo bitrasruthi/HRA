@@ -32,14 +32,13 @@ class Login extends Forms {
     try {
       const { data } = this.state;
        await auth.login(data.Email, data.Password);
-      this.props.history.push('/admin/index');
       if (data) {
         toast.success("Login Successful");
       }
       setTimeout(() => {
-        window.location = state ? state.from.pathname : "/admin/index";
+        window.location = "/admin/index";
       }, 2000);
-      const { state } = this.props.location;
+      // const { state } = this.props.location;
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -56,7 +55,7 @@ class Login extends Forms {
   render() {  
   return (
     <>
-      <Col lg="5" md="7">
+      <Col lg="" md="">
         <Card className="bg-secondary shadow border-0">
           <CardHeader>
             <div className="text-center text-muted mb-4">

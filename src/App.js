@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Switch, Route, Redirect } from "react-router-dom";
 import ELogin from './views/examples/ELogin';
+import Holidays from './components/Admin Files/Settings/Holidays/holidays';
 
 
 
@@ -21,6 +22,7 @@ class App extends React.Component {
                 <Switch>
                 <Route path="/auth/login" component={Login} />
                 <Route path="/auth/elogin" component={ELogin} />
+                <Route path="/admin/holidays" component={Holidays} />
                 </Switch>
                 </main>
                 </React.Fragment>
