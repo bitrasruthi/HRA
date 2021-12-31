@@ -38,7 +38,7 @@ class ELogin extends Forms {
         if (jwt.token) {
           toast.success("Login Successful");
           setTimeout(() => {
-            window.location = "/admin/index";
+            window.location = "/emp/index";
           }, 2000);
         } else {
           toast(jwt.data);
@@ -60,7 +60,7 @@ class ELogin extends Forms {
     <>
       <Col lg="" md="">
         <Card className="bg-secondary shadow border-0">
-          <CardHeader className='bg-gradient-purple'>
+          <CardHeader>
             <div className="text-center text-muted mb-4">
               <h2>Employee Login</h2>
             </div>

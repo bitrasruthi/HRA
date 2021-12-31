@@ -25,7 +25,6 @@ ReactDOM.render(
       <Route path="/emp" render={(props) => <EmpLayout {...props} />} />
       <Route path="/empauth" render={(props) => <EmpAuthLayout {...props} />} />
 
-      <Redirect from="/" to="/admin/index" />
       <App/>
     </Switch>
   </BrowserRouter>,

@@ -11,13 +11,14 @@ import Employees from'../src/components/Admin Files/Employee List/emplist'
 import ELogin  from 'views/examples/ELogin.js';
 import LeaveList from "views/examples/Profile";
 import EmpWorkingStas from './components/Admin Files/Employee Working Stats/empWorkingStats';
+import Header  from 'components/Headers/Header.js';
 
 var routes = [
   {
     path: "/index",
     name: "Dashboard",
     icon: "ni ni-tv-2 text-primary",
-    component: Index,
+    component:Header,
     layout: "/admin",
   },
   {

@@ -1,76 +1,49 @@
+
 import { Link } from "react-router-dom";
 // reactstrap components
 import {
-  UncontrolledCollapse,
-  NavbarBrand,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  Form,
+  FormGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Input,
+  InputGroup,
   Navbar,
-  NavItem,
-  NavLink,
   Nav,
   Container,
-  Row,
-  Col,
+  Media,
 } from "reactstrap";
 
-const EmpNavbar = () => {
+const EmpNavbar = (props) => {
   return (
     <>
-      <Navbar className="navbar-top navbar-horizontal navbar-dark" expand="md">
-        <Container className="px-4">
-          <NavbarBrand to="/" tag={Link}>
-            <img
-              alt="..."
-              src={
-                require("../../assets/img/brand/argon-react-white.png").default
-              }
-            />
-          </NavbarBrand>
-          <button className="navbar-toggler" id="navbar-collapse-main">
-            <span className="navbar-toggler-icon" />
-          </button>
-          <UncontrolledCollapse navbar toggler="#navbar-collapse-main">
-            <div className="navbar-collapse-header d-md-none">
-              <Row>
-                <Col className="collapse-brand" xs="6">
-                  <Link to="/">
-                    <img
-                      alt="..."
-                      src={
-                        require("../../assets/img/brand/argon-react.png")
-                          .default
-                      }
-                    />
-                  </Link>
-                </Col>
-                <Col className="collapse-close" xs="6">
-                  <button className="navbar-toggler" id="navbar-collapse-main">
-                    <span />
-                    <span />
-                  </button>
-                </Col>
-              </Row>
-            </div>
-            <Nav className="ml-auto" navbar>
-              
-              <NavItem>
-                <NavLink
-                  className="nav-link-icon"
-                  to="/emp/elogin"
-                  tag={Link}
-                >
-                  <i className="ni ni-circle-08" />
-                  <span className="nav-link-inner--text">Employee</span>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link-icon" to="/auth/login" tag={Link}>
-                  <i className="ni ni-key-25" />
-                  <span className="nav-link-inner--text">Admin</span>
-                </NavLink>
-              </NavItem>
-              
-            </Nav>
-          </UncontrolledCollapse>
+      <Navbar className="mt bg-gradient-purple navbar-top navbar-dark" expand="md" id="navbar-main">
+        <Container fluid>
+          <Link
+            className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
+            to="/"
+          >
+            {props.brandText}
+          </Link>
+          <Form className="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+            <FormGroup className="mb-0">
+              <InputGroup className="input-group-alternative">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="fas fa-search" />
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input placeholder="Search" type="text" />
+              </InputGroup>
+            </FormGroup>
+          </Form>
+          <Nav className="align-items-center d-none d-md-flex" navbar>
+           
+          </Nav>
         </Container>
       </Navbar>
     </>

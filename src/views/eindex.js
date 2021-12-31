@@ -26,8 +26,9 @@ import {
 
 
 import Header from "components/Headers/Header.js";
+import EmpHeader from './../components/Headers/EmpHeader';
 
-const Index = (props) => {
+const EIndex = (props) => {
   const [activeNav, setActiveNav] = useState(1);
 
 
@@ -37,7 +38,7 @@ const Index = (props) => {
   };
   return (
     <>
-      <Header />
+      <EmpHeader />
       {/* Page content */}
       {/* <Container className="mt--7" fluid>
        
@@ -232,4 +233,4 @@ const Index = (props) => {
   );
 };
 
-export default Index;
+export default EIndex;

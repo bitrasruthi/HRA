@@ -1,26 +1,22 @@
+
 import React from "react";
 import { useLocation, Route, Switch, Redirect } from "react-router-dom";
 // reactstrap components
-import { Container, Row, Col } from "reactstrap";
-
+import { Container } from "reactstrap";
 // core components
-import AuthFooter from "components/Footers/AuthFooter.js";
+import AdminNavbar from "components/Navbars/AdminNavbar.js";
+import AdminFooter from "components/Footers/AdminFooter.js";
+import Sidebar from "components/Sidebar/Sidebar.js";
 
-import routes from "routes.js";
+
+import Holidays from './../components/Admin Files/Settings/Holidays/holidays';
+import routes3 from './../routes3';
 import EmpNavbar from './../components/Navbars/EmpNavbar';
 
 const Emp = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
-  
 
-
-  React.useEffect(() => {
-    document.body.classList.add("bg-default");
-    return () => {
-      document.body.classList.remove("bg-default");
-    };
-  }, []);
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
@@ -43,47 +39,46 @@ const Emp = (props) => {
     });
   };
 
+
+
+  const getBrandText = (path) => {
+    for (let i = 0; i < routes3.length; i++) {
+      if (
+        props.location.pathname.indexOf(routes3[i].layout + routes3[i].path) !==
+        -1
+      ) {
+        return routes3[i].name;
+      }
+    }
+    return "Brand";
+  };
+
   return (
     <>
-      <div className="main-content" ref={mainContent}>
-        <EmpNavbar/>
-        <div className="header bg-gradient-purple py-7 py-lg-6">
-          <Container>
-            <div className="header-body text-center mb-7">
-              <Row className="justify-content-center">
-                <Col lg="5" md="5">
-                  <h1 className="text-white">Welcome Employee! Please Login Here</h1>
-                </Col>
-              </Row>
-            </div>
-          </Container>
-          <div className="separator separator-bottom separator-skew zindex-100">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-              version="1.1"
-              viewBox="0 0 2560 100"
-              x="0"
-              y="0"
-            >
-              <polygon
-                className="fill-purple"
-                points="2560 0 2560 100 0 100"
-              />
-            </svg>
-          </div>
-        </div>
-        {/* Page content */}
-        <Container className="mt--8 pb-5">
-          <Row className="justify-content-center">
-            <Switch>
-              {getRoutes(routes)}
-              <Redirect from="*" to="/emp/elogin" />
-            </Switch>
-          </Row>
+      <Sidebar
+        {...props}
+        routes={routes3}
+        logo={{
+          innerLink: "/emp/index",
+          imgSrc: require("../assets/img/brand/argon-react.png").default,
+          imgAlt: "...",
+        }}
+      />
+      <div className=" main-content" ref={mainContent}>
+        <EmpNavbar
+          {...props}
+          brandText={getBrandText(props.location.pathname)}
+        />
+        <Switch>
+          {getRoutes(routes3)}
+          <Redirect from="*" to="/emp/index" />
+          {/* <Route path="/admin/holidays" component={Holidays} /> */}
+
+        </Switch>
+        <Container fluid>
+          <AdminFooter />
         </Container>
       </div>
-      <AuthFooter />
     </>
   );
 };
