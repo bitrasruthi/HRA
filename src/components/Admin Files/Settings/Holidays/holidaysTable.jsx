@@ -9,6 +9,7 @@ import { deletehoil } from "services/settings";
 import {
   Button,
   Card,
+  Row,
   CardHeader,
   CardBody,
   Form,
@@ -24,7 +25,7 @@ class HoliTable extends React.Component {
   onClickButton = e => {
     // e.preventDefault()
     this.setState({ openModal: true })
-    console.log(e.SERIAL_NO - 1)
+    // console.log(e.SERIAL_NO - 1)
     this.setState({ hoilidex: e.SERIAL_NO - 1 })
     // const dd = this.props.match.params.id 
     // console.log(this);
@@ -54,22 +55,22 @@ class HoliTable extends React.Component {
     this.setState({ isLoading: false });
   }
 
-//   doSubmit = async (emp) => {
-//     this.setState({ disabled: true })
-//     try {
-//         const id = this.props.hoilidex
-//         console.log(id)
-//         await deletehoil({ index: id })
+  doSubmit = async (emp) => {
+    this.setState({ disabled: true })
+    try {
+        const id = this.props.hoilidex
+        console.log(id)
+        await deletehoil({ index: id })
 
-//     } catch (ex) {
-//         if (ex.response && ex.response.status === 400) {
-//             const errors = { ...this.state.errors };
-//             toast('somthing worng')
-//             errors.EmployeeId = ex.response.data.data;
-//             this.setState({ errors });
-//         }
-//     }
-// };
+    } catch (ex) {
+        if (ex.response && ex.response.status === 400) {
+            const errors = { ...this.state.errors };
+            toast('somthing worng')
+            errors.EmployeeId = ex.response.data.data;
+            this.setState({ errors });
+        }
+    }
+};
 
   constructor() {
     super();
@@ -80,6 +81,8 @@ class HoliTable extends React.Component {
     const { holidays, sortColumn, onSort, disabled, loading } = this.props;
     return (
       <div>
+       
+        <div  className="mt--7">
         <Tables
           columns={this.columns}
           data={holidays}
@@ -88,6 +91,8 @@ class HoliTable extends React.Component {
           disabled={disabled}
           loading={loading}
         />
+
+        </div>
         <Modal open={this.state.openModal} onClose={this.onCloseModal}>
           {/* <DeleteHoil
             hoilidex={this.state.hoilidex}

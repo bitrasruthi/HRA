@@ -8,9 +8,11 @@ import { connect } from "react-redux";
 import get_hoildays from "../../../../reduxstore/actions/hoildaysActions";
 import { postholidays } from '../../../../services/settings'
 import { toast } from 'react-toastify'
+import { Modal } from 'react-responsive-modal';
 
 import {
   Button,
+  CardHeader,
   Container,
   Row,
   Card,
@@ -27,8 +29,18 @@ class Holidays extends Forms {
     loading: true,
     holidays: [],
     errors: [],
+    openModal: false,
     sortColumn: { path: "Date", order: "asc" },
   };
+  
+  onClickButton = e => {
+    // e.preventDefault()
+    this.setState({ openModal: true })
+    // console.log(e.SERIAL_NO - 1)
+  }
+  onCloseModal = () => {
+    this.setState({ openModal: false })
+  }
   schema = {
     date: Joi.string().required(),
     festival: Joi.string().required(),
@@ -72,6 +84,8 @@ class Holidays extends Forms {
     }
   }
 
+
+
   doSubmit = async () => {
     const { data, holidays } = this.state
     try {
@@ -94,8 +108,12 @@ class Holidays extends Forms {
     return (
       <>
       {/* Page content */}
+      <div  className="text-center">
+
+<Button className="mt-7 bg-gradient-orange border-0 " onClick={this.onClickButton}>Add New Holiday</Button>
+</div>
       <Container fluid>
-       
+        
             <HoliTable
               holidays={holidays}
               sortColumn={sortColumn}
@@ -105,6 +123,43 @@ class Holidays extends Forms {
             />
            
             </Container>
+            <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+          {/* <DeleteHoil
+            hoilidex={this.state.hoilidex}
+          /> */}
+     <div className=" pt-4" >
+          <Card className="bg-secondary shadow border-0" >
+            {/* <CardHeader className="bg-gradient-teal border-0">
+              <Col xs="9">
+                <h3 className=" ml-4 text-center">Add New Holiday here:</h3>
+              </Col>
+            </CardHeader> */}
+            <CardBody className="px-lg-3 py-sm-5">
+              <Form role="form" onSubmit={this.handleSubmit}>
+                {/* {this.renderInput("EmployeeId", "Employee Id",)} */}
+
+                  {this.renderInput("date", "Date", 'date')}
+                  {this.renderInput("festival", "Festival")}
+
+                {/* <input type="radio" name="option" id="1" value="Yes" />
+                      <input type="radio" name="option" id="2" value="No" /> */}
+                <div className="text-center " >
+                  <Button className='bg-teal border-0'disabled={this.state.disabled} variant="contained" onClick={this.handleSubmit}>
+                  Add Holiday
+                  </Button>
+
+                </div>
+
+              </Form>
+            </CardBody>
+
+          </Card>
+        <div>
+        </div>
+      </div>
+
+        </Modal>
+            
             </>
          
     );
