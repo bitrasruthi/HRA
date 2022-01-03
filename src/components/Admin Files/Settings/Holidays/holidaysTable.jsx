@@ -25,8 +25,8 @@ class HoliTable extends React.Component {
   onClickButton = e => {
     // e.preventDefault()
     this.setState({ openModal: true })
-    console.log(e.SERIAL_NO - 1)
-    this.setState({ hoilidex: e.SERIAL_NO - 1 })
+    console.log(e._id)
+    this.setState({ hoilidex: e._id })
     // const dd = this.props.match.params.id 
     // console.log(this);
   }
@@ -42,7 +42,7 @@ class HoliTable extends React.Component {
       label: 'Actions',
       content: (hoil) => (
         <button className="btn bg-pink btn-sm" onClick={() => this.onClickButton(hoil)} >
-          <Link style={{ color: 'white' }} to={`/admin/holidays/${hoil.SERIAL_NO}`}>
+          <Link style={{ color: 'white' }} to={`/admin/holidays/${hoil._id}`}>
             Delete</Link></button>
       ),
     }
@@ -58,9 +58,11 @@ class HoliTable extends React.Component {
   doSubmit = async (emp) => {
     this.setState({ disabled: true })
     try {
-      const id = this.state.hoilidex
-      console.log(id)
-      await deletehoil({ index: id })
+        const id = this.state.hoilidex
+        // console.log(id._id)
+        await deletehoil({ _id: id })
+        toast.success('Holiday Deleted!!!')
+        window.location = '/admin/holidays'
 
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {

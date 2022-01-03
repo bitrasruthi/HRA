@@ -64,12 +64,15 @@ class Holidays extends Forms {
       if (!this.props.gethoildayslist) {
         await get_hoildays();
       }
+    
       var dd = await this.props.gethoildayslist[0].holidays;
       // const ff = dd[0].holidays;
       var gg = dd.map(function (currentValue, Index) {
         currentValue.SERIAL_NO = Index + 1
         return currentValue
+        
       })
+    
 
       await this.setState({ holidays: dd });
 
@@ -93,7 +96,8 @@ class Holidays extends Forms {
       var ff = { ...this.state.holidays, data }
       holidays.push(ff.data)
       await this.setState({ holidays, data: { date: '', festival: '' } })
-
+      toast.success('Holiday Added!!!')
+      window.location = '/admin/holidays'
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
