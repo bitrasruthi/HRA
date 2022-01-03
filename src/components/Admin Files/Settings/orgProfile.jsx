@@ -7,6 +7,7 @@ import Forms from 'components/Common/form';
 import {
     Button,
     Card,
+    Container,
     CardHeader,
     CardBody,
     Form,
@@ -72,47 +73,58 @@ class Orgprofile extends Forms {
 
 
     render() {
-        return <div>
-
-            <Col lg="6" md="7" style={{ marginLeft: "20%", paddingTop: "auto", position: 'absolute' }}>
-        <Card className="bg-secondary shadow border-0" >
-          <CardHeader className="bg-gradient-success border-0">
-            <Col style={{ marginLeft: '200px', paddingBottom: '10px' }} xs="8">
-              <h3 className="mb--3">Update Company Details</h3>
-            </Col>
-
+        return (
+        <>
+         <Container  fluid>
+        <Row>
+          <div className="col">
+            <Card className="mt-8 shadow ">
+            <CardHeader className="bg-gradient-orange text-center border-0 ">
+              <h3 className="">Update Company Details</h3>
           </CardHeader>
-          <CardBody  className="px-lg-3 py-sm-5">
+          <CardBody className="px-lg-3 py-sm-5">
                         <Form role="form" onSubmit={this.handleSubmit}>
-                        <Col sm={{ size: 6 }} style={{marginLeft: '3px',  marginTop: '-0px'}}>
+                            <Row>
+                            <Col lg='4'>
                             {this.renderInput("established", "Established", 'date')}
                             </Col>
-                            <Col sm={{ size: 6 }} style={{marginLeft: '300px', marginTop: '-100px'}}className='mr-sm-2'>
+                            
+                            <Col lg='4'>
                             {this.renderInput("type", "Type")}
                             </Col>
-                            <Col sm={{ size: 6 }} style={{marginLeft: '3px',  marginTop: '-0px'}}>
+                            <Col lg='3'>
                             {this.renderInput("companyIdCode", "Company Id ")}
                             </Col>
-                            <Col sm={{ size: 6 }} style={{marginLeft: '300px', marginTop: '-100px'}}className='mr-sm-2'>
+                            </Row>
+                            <Row>
+                            <Col lg='6'>
                             {this.renderInput("companyMailId", "Mail id")}
                             </Col>
-                            <Col sm={{ size: 6 }} style={{marginLeft: '3px',  marginTop: '-0px'}}>
+                            <Col lg='5'>
                             {this.renderInput("companyContactNumber", "Contact number")}
                             </Col>
+                            </Row>
 
 
-                            <div className="text-center">
-                                {/* {this.renderButton("Save")} */}
-                                <Button style={{ marginLeft: '0px', marginTop: '0px', background: '#2DCEC8', color: 'white', border: 'none' }} variant="contained" onClick={this.onApprove}>
-                                    Submit
-                                </Button>
-                            </div>
+                            <div className="text-center ">
+                            <Button disabled={this.state.loadstatus}  className="bg-teal my-4" type="submit">
+                                Reset Password
+                            </Button>
+                        </div>
                         </Form>
                     </CardBody>
+
+       
+        
+     
+          
                     
                 </Card>
-            </Col>
-        </div>;
+        </div>
+        </Row>
+        </Container>
+        </>
+        )
     }
 }
 

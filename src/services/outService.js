@@ -2,7 +2,7 @@ import http from './httpService';
 
 
 
-const apiEndPoint = '/employee/post/outTime';
+const apiEndPoint = 'http://cghrportal.herokuapp.com/api/employee/post/outTime';
 
 
 export function checkOut(user) {

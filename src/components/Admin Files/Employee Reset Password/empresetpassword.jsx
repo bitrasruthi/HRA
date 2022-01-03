@@ -10,6 +10,7 @@ import {
     CardBody,
     CardTitle,
     Form,
+    Container,
     CardHeader,
     Row,
     Col,
@@ -55,13 +56,14 @@ class EmpRestPassword extends Forms {
     };
 
     render() {
-        return <div>
-            <Col lg="4" md="7" style={{ marginLeft: "30%", paddingTop: "auto", position: 'absolute' }}>                <Card className="bg-secondary shadow border-0" >
-                <CardHeader className="bg-gradient-success border-0">
-                    <Col style={{ marginLeft: '80px', paddingBottom: '10px' }} xs="8">
-                        <h3 className="mb--3">Reset Employee Password</h3>
-                    </Col>
-
+        return ( 
+        <>
+        <Container fluid>
+          <Row>
+            <div className="px-lg-9 lg-4 col">
+              <Card className="mt-8 shadow border-0">
+                    <CardHeader className="bg-gradient-orange text-center">
+                         <h3 className="">Reset Employee Password</h3>
                 </CardHeader>
                 <CardBody className="px-lg-3 py-sm-5">
                     <Form role="form" onSubmit={this.handleSubmit}>
@@ -77,10 +79,13 @@ class EmpRestPassword extends Forms {
                     </Form>
                 </CardBody>
             </Card>
-            </Col>
+            </div>
+            </Row>
+            </Container>
 
-        </div>;
-    }
+        </>
+    )
+        }
 }
 
 export default EmpRestPassword;

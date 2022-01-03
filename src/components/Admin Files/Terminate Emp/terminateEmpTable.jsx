@@ -2,6 +2,7 @@ import React from "react";
 import Table from "../../Common/table";
 import { Link } from "react-router-dom";
 // import { Spinner } from '../spinner';
+import Tables  from 'components/Common/table';
 
 class TerminateEmpTable extends React.Component {
   columns = [
@@ -14,7 +15,8 @@ class TerminateEmpTable extends React.Component {
   render() {
     const { employees, onSort, sortColumn, onload, disabled, loading } = this.props;
     return (
-      <Table
+      <div>
+      <Tables
         columns={this.columns}
         data={employees}
         sortColumn={sortColumn}
@@ -24,6 +26,7 @@ class TerminateEmpTable extends React.Component {
         loading={loading}
       // LoadingComponent={Spinner}
       />
+      </div>
     );
   }
 }

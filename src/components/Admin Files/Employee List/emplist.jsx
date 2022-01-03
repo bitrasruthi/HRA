@@ -102,14 +102,9 @@ class Employees extends React.Component {
 
     return (
       <>
-        <Header />
         {/* Page content */}
         <Container className="mt--7" fluid>
-          <Row>
-            <div className="col">
-              <Card className="shadow ">
-
-                <Col className="px-lg-9 px-sm-5" >
+         
 
                   <EmployeeTable
                     employees={data}
@@ -120,10 +115,7 @@ class Employees extends React.Component {
                     loading={this.state.loading}
                   // onDelete={this.handleDelete}
                   />
-                </Col>
-              </Card>
-            </div>
-          </Row>
+               
         </Container>
       </>
     );

@@ -1,11 +1,8 @@
 import React from 'react';
-import get_leavelist from 'reduxstore/actions/leaveAction';
 import { toast } from 'react-toastify';
+import get_leavelist from 'reduxstore/actions/leaveAction';
 import { get_moreleavelist } from 'reduxstore/actions/leaveAction';
-import LeaveTable from './../../components/Admin Files/Emp Leave List/leavetable';
 import { connect } from 'react-redux';
-
-
 
 import {
   Button,
@@ -20,7 +17,10 @@ import {
   Col,
 } from "reactstrap";
 // core components
-class LeaveList extends React.Component {
+import UserHeader from "components/Headers/UserHeader.js";
+import LeaveTable from './../../components/Admin Files/Emp Leave List/leavetable';
+
+class Profile extends React.Component {
   state = {
     leaves: [],
     limit: 2,
@@ -111,17 +111,14 @@ class LeaveList extends React.Component {
   handleApprove = () => {
     this.approveLeave();
   };
-
   render() {
     const { sortColumn, leaves: data } = this.state;
-
   return (
     <>
-    {/* Page content */}
-    <Container className="" fluid>
-      <Row>
-        <div className="mt-8 col">
-          <Card className="shadow border-0">
+      {/* Page content */}
+      
+         <Container fluid>
+
           <LeaveTable
             leaves={data}
             sortColumn={sortColumn}
@@ -131,20 +128,16 @@ class LeaveList extends React.Component {
             loading={this.state.loading}
 
           />
-          </Card>
-        </div>
-      </Row>
-    </Container>
-  </>
+          </Container>
+    </>
   );
 };
 }
-
+// export default Profile;
 const mapStateToProps = (state) => {
   return {
     getleavelist: state.getleavelist,
   };
 };
 
-export default connect(mapStateToProps)(LeaveList);
-
+export default connect(mapStateToProps)(Profile);

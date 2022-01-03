@@ -2,10 +2,10 @@ import React from "react";
 import TableHeader from "./tableHeader";
 import TableBody from "./tableBody";
 import TableFooter from "./tableFooter";
-import { Col } from 'reactstrap';
+import { Col, Table } from 'reactstrap';
 
 
-class Table extends React.Component {
+class Tables extends React.Component {
   state = {
     isLoading: true,
   };
@@ -25,16 +25,16 @@ class Table extends React.Component {
   render() {
     const { columns, sortColumn, onSort, data, onload, disabled, loading } = this.props;
     return (
-
+      
       <div 
         className=" px-2 py-sm-3 ">
-        <table className="table table-bordered table-responsive-sm">
+        <Table className="mt-8 align-items-center" responsive>
           <TableHeader columns={columns} sortColumn={sortColumn} onSort={onSort}/>
 
           <TableBody columns={columns} data={data} onload={onload} disabled={disabled} />
 
 
-        </table>
+        </Table>
             <TableFooter  onload={onload} disabled={disabled} loading={loading} />
        
 
@@ -44,4 +44,4 @@ class Table extends React.Component {
   }
 }
 
-export default Table;
+export default Tables;

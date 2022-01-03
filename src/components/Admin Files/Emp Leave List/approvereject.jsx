@@ -68,15 +68,14 @@ class ApproveReject extends Forms {
   render() {
     console.log(this.props.getleavelist[0].EmployeeName)
     return (
-      <div  >
-        <Col lg="9" md="9" >
+      <div className="pt-4" >
           <Card className="bg-secondary shadow border-0" >
-            <CardHeader className="bg-gradient-success border-0">
+            <CardHeader className="text-center bg-gradient-teal border-0">
               <Col xs="9">
-                <h3 className="mb--3">Leave Action</h3>
+                <h3 className="">Leave Action</h3>
               </Col>
             </CardHeader>
-            <CardBody  className="px-lg-3 py-sm-5">
+            <CardBody  className="text-center px-lg-3 py-sm-5">
               <div  className="row">
                 <h3>Name: </h3>
                 <p >{this.props.getleavelist[0].EmployeeName}</p>
@@ -99,16 +98,15 @@ class ApproveReject extends Forms {
               </div>
               <div >
                 <Button 
-                  variant="contained" onClick={this.onApprove}>
+                  variant="contained" className='bg-green border-0' onClick={this.onApprove}>
                   Approve
                 </Button>
-                <Button  variant="contained" onClick={this.onReject}>
+                <Button  variant="contained" className='bg-danger brder-0' onClick={this.onReject}>
                   Reject
                 </Button>
               </div>
             </CardBody>
           </Card>
-        </Col>
       </div>
     );
   }

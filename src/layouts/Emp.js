@@ -12,6 +12,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import Holidays from './../components/Admin Files/Settings/Holidays/holidays';
 import routes3 from './../routes3';
 import EmpNavbar from './../components/Navbars/EmpNavbar';
+import ESidebar from "components/Sidebar/ESidebar";
 
 const Emp = (props) => {
   const mainContent = React.useRef(null);
@@ -55,8 +56,8 @@ const Emp = (props) => {
 
   return (
     <>
-      <Sidebar
-        {...props}
+      <ESidebar
+              {...props}
         routes={routes3}
         logo={{
           innerLink: "/emp/index",

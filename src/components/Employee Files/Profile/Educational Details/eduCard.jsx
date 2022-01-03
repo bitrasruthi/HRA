@@ -2,7 +2,7 @@ import React from 'react';
 import { getProDetails } from 'services/profileService';
 import { Modal } from 'react-responsive-modal';
 import { Link } from 'react-router-dom';
-import { Container, Col, Button,  } from "reactstrap";
+import { Container, Col, Button, Row } from "reactstrap";
 import EduDetails from './eduDetails';
 import EduDetailsDegree from './eduDetailsDegree';
 import EduDetailsUg from './empDetailsUg';
@@ -94,18 +94,17 @@ class EduCard extends React.Component {
       <>
         {/* <ESidebar/> */}
         
-        <div style={{ height: '30%', position: "absolute", left: '0', width: '100%', }}
-          className=" py-2 py-sm-3 ">
+        <div className=" py-2 py-sm-3 ">
           {/* Header container */}
           <Container className="d-flex align-items-center" fluid>
-
-            <Col lg="6" md="3" style={{ marginLeft: "5rem", marginTop: '-600px', paddingTop: "px", position: 'absolute', }}>
+            <Row>
+            <Col lg="6"  >
               <h3> SSC
               {/* <Button style={{marginTop:'0px', marginLeft: '200px', boxShadow: 'none'}} 
               onClick={()=> this.onClickButton (emp)}>
                 <i  class="fas fa-edit"/></i></Button> */}
-                <Button  style={{marginTop:'0px', marginLeft: '345px', boxShadow: 'none', background: '#B965E0'}} onClick={()=>{this.onClickButton("ssc")}}>
-          <Link style={{ color: 'white', zIndex: 1001 }} to="/profile/ssc"> <i  class="fas fa-edit"/>
+                <Button  onClick={()=>{this.onClickButton("ssc")}}>
+          <Link  to="/profile/ssc"> <i  class="fas fa-edit"/>
           </Link></Button> 
 
               </h3>
@@ -113,10 +112,10 @@ class EduCard extends React.Component {
               <p>Year of Pass: {this.state.data.passedoutYear}</p>
               <p>Percentage: {this.state.data.percentage}</p>
             </Col>
-            <Col lg="6" md="3" style={{ marginLeft: "40rem", marginTop: '-600px', paddingTop: "px", position: 'absolute', }}>
+            <Col lg="6" md="3" >
               <h3 > Intermediate
-              <Button  style={{marginTop:'0px', marginLeft: '300px', boxShadow: 'none', background: '#B965E0'}} onClick={()=>{this.onClickButton("degree")}}>
-          <Link style={{ color: 'white', zIndex: 1001 }} to="/profile/degree"> <i  class="fas fa-edit"/>
+              <Button   onClick={()=>{this.onClickButton("degree")}}>
+          <Link  to="/profile/degree"> <i  class="fas fa-edit"/>
           </Link></Button> 
 
               </h3>
@@ -125,10 +124,10 @@ class EduCard extends React.Component {
               <p>Percentage: {this.state.degree.percentage}</p>
 
             </Col>
-            <Col lg="6" md="3" style={{ marginLeft: "5rem", marginTop: '-200px', paddingTop: "px", position: 'absolute', }}>
+            <Col lg="6" md="3" >
               <h3 > Graduation
-              <Button  style={{marginTop:'0px', marginLeft: '280px', boxShadow: 'none', background: '#B965E0'}} onClick={()=>{this.onClickButton("ug")}}>
-          <Link style={{ color: 'white', zIndex: 1001 }} to="/profile/ug"> <i  class="fas fa-edit"/>
+              <Button   onClick={()=>{this.onClickButton("ug")}}>
+          <Link  to="/profile/ug"> <i  class="fas fa-edit"/>
           </Link></Button> 
               </h3>
               <p>Institute: {this.state.ug.institute}</p>
@@ -136,11 +135,11 @@ class EduCard extends React.Component {
               <p>Percentage: {this.state.ug.percentage}</p>
 
             </Col>
-            <Col lg="6" md="3" style={{ marginLeft: "40rem", marginTop: '-200px', paddingTop: "px", position: 'absolute', }}>
+            <Col lg="6" md="3" >
 
               <h3 > Post Graduation
-              <Button style={{marginTop:'0px', marginLeft: '280px', boxShadow: 'none', background: '#B965E0'}} onClick={()=>{this.onClickButton("pg")}}>
-          <Link style={{ color: 'white', zIndex: 1001 }} to="/profile/pg"> <i  class="fas fa-edit"/>
+              <Button  onClick={()=>{this.onClickButton("pg")}}>
+          <Link  to="/profile/pg"> <i  class="fas fa-edit"/>
           </Link></Button> 
 
               </h3>
@@ -149,6 +148,7 @@ class EduCard extends React.Component {
               <p>Percentage: {this.state.pg.percentage}</p>
 
             </Col>
+            </Row>
           </Container>
 
         </div>

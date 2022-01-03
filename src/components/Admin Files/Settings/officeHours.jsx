@@ -59,24 +59,32 @@ class OfficeHours extends Forms {
     render() {
         return <>
         {/* Page content */}
-        <Container className="" fluid>
+        <Container fluid>
           <Row>
-            <div className="mt-8 col">
-              <Card className="shadow border-0">
-                    <CardHeader className="bg-gradient-success">
+            <div className="px-lg-9 col">
+              <Card className="mt-8 shadow border-0">
+                    <CardHeader className="bg-gradient-orange">
                         <Row>
+                            <Col>
 
-                            <h3 style={{ marginLeft: '80px' }}>In Time: {this.state.inTime} </h3>
-                            <h3 style={{ marginLeft: '100px' }}>Out Time: {this.state.outTime} </h3>
+                            <h3 >In Time: {this.state.inTime} </h3>
+                            </Col>
+                            <Col>
+                            <h3 >Out Time: {this.state.outTime} </h3>
+                            </Col>
                         </Row>
                     </CardHeader>
-                    <CardBody className="px-lg-3 py-sm-5">
+                    <CardBody className="align-items-center px-lg-3 py-sm-5 ml">
                         <Form role="form" onSubmit={this.handleSubmit}>
 
-
+                            <Row>
+                                <Col lg='5'>
                             {this.renderInput("inTime", "InTime", 'time')}
+                            </Col>
+                            <Col lg='5'>
                             {this.renderInput("outTime", "outTime", 'time')}
-
+                            </Col>
+                            </Row>    
                             <div className="text-center">
                                 {/* {this.renderButton("Save")} */}
                                 <Button style={{ marginLeft: '0px', marginTop: '0px', background: '#2DCEC8', color: 'white', border: 'none' }} variant="contained" onClick={this.onApprove}>

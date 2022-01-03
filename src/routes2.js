@@ -19,14 +19,14 @@ var routes2 = [
   {
     path: "/holidays",
     name: "Holiday List",
-    icon: "ni ni-planet text-blue",
+    icon: "fas fa-clipboard-list text-blue",
     component: Holidays,
     layout: "/admin",
   },
   {
     path: "/officehours",
     name: "Office Hours",
-    icon: "ni ni-planet text-blue",
+    icon: "fas fa-business-time text-yellow",
     component: OfficeHours,
     layout: "/admin",
   },
@@ -34,14 +34,14 @@ var routes2 = [
   {
     path: "/companyprofile",
     name: "Company Profile",
-    icon: "ni ni-planet text-blue",
+    icon: "fas fa-sitemap text-orange",
     component: Orgprofile,
     layout: "/admin",
   },
   {
     path: "/resetpassword",
     name: "Reset Password",
-    icon: "ni ni-planet text-blue",
+    icon: "fa fa-key text-pink",
     component: EmpRestPassword,
     layout: "/admin",
   },
@@ -50,7 +50,7 @@ var routes2 = [
   {
     path: "/logout",
     name: "Logout",
-    icon: "ni ni-circle-08 text-pink",
+    icon: "fas fa-sign-out-alt text-danger",
     component: Logout,
     layout: "/auth",
   },

@@ -37,7 +37,7 @@ class TableFooter extends React.Component {
     // const notify = () => toast("Login Successful");
     if (!disabled) {
       return (
-        <Button  className="bg-gradient-pink" variant='contained' onClick={onload} >
+        <Button  className="bg-gradient-pink border-0" variant='contained' onClick={onload} >
           more
         </Button>
       );

@@ -9,6 +9,7 @@ import { leavestatus } from "../../../services/leaveService";
 import { toast } from "react-toastify";
 import ApproveReject from './approvereject';
 import 'react-responsive-modal/styles.css';
+import Tables from 'components/Common/table';
 
 
 
@@ -62,7 +63,7 @@ class LeaveTable extends React.Component {
 
         <button className={`btn btn-sm btn-${emp.status === 'pending' ? 'dark' : 
         `${emp.status === 'Rejected' ? 'danger'  : 'success'}`}`} onClick={() => this.onClickButton(emp)}>
-          <Link style={{ color: 'white' }} to={`/admin/user-profile/${emp._id}`}> {emp.status}
+          <Link style={{ color: 'white' }} to={`/admin/leavelist/${emp._id}`}> {emp.status}
           </Link></button>
       ),
     },
@@ -89,7 +90,7 @@ class LeaveTable extends React.Component {
     return (
       <div>
 
-        <Table
+        <Tables
           columns={this.columns}
           data={leaves}
           sortColumn={sortColumn}
@@ -110,11 +111,4 @@ class LeaveTable extends React.Component {
   }
 }
 
-// export default LeaveTable;
-const mapStateToProps = (state) => {
-  return {
-    getleavelist: state.getleavelist,
-  };
-};
-
-export default connect(mapStateToProps)(LeaveTable);
+export default LeaveTable;

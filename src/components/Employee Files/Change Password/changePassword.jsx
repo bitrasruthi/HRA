@@ -1,10 +1,9 @@
 import React from "react";
 import Joi from "joi-browser";
-import ESidebar from "../Sidebar/eSidebar";
-import emp from "../../services/empservice";
+import emp from "../../../services/empservice";
 import { toast } from "react-toastify";
-import Forms from './../Common/form';
-import { Card, Col, CardHeader, Button, CardBody } from 'reactstrap'
+import Forms from './../../Common/form';
+import { Card, Col, CardHeader, Button, CardBody, Container, Row } from 'reactstrap'
 import ENavBar from 'components/Common/enavbar';
 
 class ChangePassword extends Forms {
@@ -49,15 +48,14 @@ class ChangePassword extends Forms {
 
   render() {
     return (
-      <div>
-        <ESidebar />
-        {/* <ENavBar/> */}
-        <Col lg="5" md="7" style={{ marginLeft: "25%", paddingTop: "px", position: 'absolute' }}>
-          <Card className=" shadow border-0" >
-            <CardHeader className="bg-gradient-purple border-0">
-              <Col style={{ marginLeft: '160px', paddingBottom: '10px' }} xs="8">
-                <h3 className="mb--3">Change Password</h3>
-              </Col>
+      <>
+      {/* Page content */}
+      <Container className="" fluid>
+        <Row>
+        <div className="px-lg-9 lg-4 col">
+            <Card className=" mt-8 shadow border-0">
+            <CardHeader className="text-center bg-gradient-orange border-0">
+                <h3 className="mb">Change Password</h3>
 
             </CardHeader>
             <CardBody className="px-lg-3 py-sm-5">
@@ -67,7 +65,7 @@ class ChangePassword extends Forms {
                 {this.renderInput("conformPassword", "Confirm Password", 'password')}
                 {/* {this.renderButton("Submit")} */}
                 <div style={{ textAlign: 'center' }}>
-                  <Button disabled={this.validate()} style={{ marginLeft: '0px', marginTop: '0px', background: '#B665E0', color: 'white', border: 'none' }} variant="contained" onClick={this.onApprove}>
+                  <Button disabled={this.validate()} className="bg-purple" variant="contained" onClick={this.onApprove}>
                     Submit
                   </Button>
 
@@ -75,8 +73,10 @@ class ChangePassword extends Forms {
               </form>
             </CardBody>
           </Card>
-        </Col>
-      </div>
+        </div>
+        </Row>
+        </Container>
+        </>
     );
   }
 }

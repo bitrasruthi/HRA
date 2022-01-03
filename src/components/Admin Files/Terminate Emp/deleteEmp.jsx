@@ -99,12 +99,11 @@ class DeleteEmp extends Forms {
     return (
 
 
-      <div  >
-        <Col lg="9" md="9" >
+      <div className=" pt-4" >
           <Card className="bg-secondary shadow border-0" >
-            <CardHeader className="bg-gradient-success border-0">
+            <CardHeader className="bg-gradient-teal border-0">
               <Col xs="9">
-                <h3 className="mb--3">Termination</h3>
+                <h3 className=" ml-4 text-center">Termination</h3>
               </Col>
             </CardHeader>
             <CardBody className="px-lg-3 py-sm-5">
@@ -114,9 +113,9 @@ class DeleteEmp extends Forms {
                 {/* <input type="radio" name="option" id="1" value="Yes" />
                       <input type="radio" name="option" id="2" value="No" /> */}
                 {this.renderInput("AgreementDone", "Agreement Period Completed?",)}
-                <div  >
-                  <Button disabled={this.state.disabled} variant="contained" onClick={this.handleSubmit}>
-                    Terminate Employee
+                <div className="text-center " >
+                  <Button className='bg-teal border-0'disabled={this.state.disabled} variant="contained" onClick={this.handleSubmit}>
+                    Terminate
                   </Button>
 
                 </div>
@@ -125,7 +124,6 @@ class DeleteEmp extends Forms {
             </CardBody>
 
           </Card>
-        </Col>
         <div>
         </div>
       </div>

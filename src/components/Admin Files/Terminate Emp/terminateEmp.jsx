@@ -4,7 +4,7 @@ import Joi from 'joi-browser';
 import { toast } from "react-toastify";
 import Forms from 'components/Common/form';
 import { connect } from "react-redux";
-import { Col } from 'reactstrap'
+import { Col, Container } from 'reactstrap'
 import get_termlist, { get_moretermlist, saveskip } from '../../../reduxstore/actions/terminateAction'
 
 
@@ -102,13 +102,10 @@ class TerminateEmp extends Forms {
     const { sortColumn, employees: data } = this.state;
 
 
-    return <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-      className=" py-5 py-sm-1 ">
-      <Sidebar />
-      <h1 style={{ textAlign: 'center', marginLeft: '-150px', color: '#F3A4B4' }}>Terminated Employees</h1>
-
-      <Col lg="6" md="7" style={{ width: '544px', marginLeft: "rem", paddingTop: "px", position: 'absolute', }}>
-
+    return (
+      <>
+      {/* Page content */}
+      <Container fluid>
         <TerminateEmpTable
           employees={data}
           sortColumn={sortColumn}
@@ -117,9 +114,9 @@ class TerminateEmp extends Forms {
           disabled={this.state.loadstatus}
           loading={this.state.loading}
         />
-      </Col>
-
-    </div>;
+</Container>
+</>
+    )
   }
 }
 

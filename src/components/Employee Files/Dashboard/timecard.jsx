@@ -1,18 +1,19 @@
 import React from "react";
 import Joi from "joi-browser";
 import { toast } from "react-toastify";
-import { checkIn } from "../../services/inService";
-import { checkOut } from "../../services/outService";
-import Forms from "../../components/Common/form";
-import { gettime } from '../../services/settings'
-import { getCurrentUser } from "services/authService";
+import { checkIn } from "./../../../services/inService";
+import { checkOut } from "./../../../services/outService";
+import Forms from "../../../components/Common/form";
+import { gettime } from './../../../services/settings'
 
+  import {getCurrentUser}  from './../../../services/authService';
 
 import {
   Button,
   Card,
   CardBody,
-
+  CardTitle,
+  Container,
   Col,
 
   Row,
@@ -112,48 +113,45 @@ class TimeCard extends Forms {
 
   render() {
     return (
-      <div>
-        <div className="container" style={{ paddingLeft: "400px", paddingRight: "300px", marginLeft: '-210px', paddingTop: "200px" }}>
-          <Card
-            style={{ marginTop: "-0px", }}
-            className="bg-secondary shadow border-0"
-          >
-            <CardBody className="px-lg-7 py-lg-1">
-              <Col style={{ textAlign: "center", marginLeft: '-70px', marginTop: '40px', marginBottom: '35px' }} >
-              <h1 style={{ textAlign: "center", paddingLeft: '0px', width: '300px', }}>Welcome <span className="text-uppercase">{this.state.name}</span></h1>
-              </Col>
-              <h3
+      <>
+                <Card className=" card-stats mb-3 mb-xl-0">
+            <CardBody >
+            <Row>
+                      <div className="col">
+                        <CardTitle
+                          tag="h5"
+                          className="text-center  mb-0"
+                        >
+                          Hi,  
+                          <span className="text-uppercase cardtry h2 font-weight-bold mb-0">
+                          {this.state.name}
+                        </span>
+                        </CardTitle>
+              {/* <h3
                 className="card-title"
                 style={{ textAlign: "center", marginTop: "0px" }}
               >
                Today:  {new Date().toLocaleDateString()}
-              </h3>
-              <Row style={{ paddingLeft: "12px" }}>
-                <Button
-                  style={{ background: "#B965E0", border: "none" }}
-                  onClick={this.doIn}
-                  disabled={this.state.disabled}
-                  className="  my-4"
-                  color="primary"
+              </h3> */}
+              <Row className="text-center ml-3">
+                <Button onClick={this.doIn} disabled={this.state.disabled} className="shadow-none bg-purple my-4" 
                   type="submit"
                 >
                   Check In
                 </Button>
-                <Button
-                  style={{ background: "#B965E0", border: "none" }}
-                  onClick={this.doOut}
-                  disabled={this.state.disabled}
-                  className=" my-4"
-                  color="primary"
+                <Button onClick={this.doOut} disabled={this.state.disabled} className="shadow-none bg-purple my-4" 
                   type="submit"
                 >
                   Check Out
                 </Button>
               </Row>
-            </CardBody>
-          </Card>
-        </div>
-      </div>
+              </div>
+              </Row>
+              </CardBody>
+              </Card>
+             
+              </>
+            
     );
   }
 }

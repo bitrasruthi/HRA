@@ -2,11 +2,10 @@ import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import LeaveTable from "./leavetable";
-import Sidebar from "../../Sidebar/Sidebar";
 import get_leavelist, { get_moreleavelist } from "../../../reduxstore/actions/leaveAction";
 import { toast } from "react-toastify";
 import {
-  Button, Col
+  Button, Col, Container
 
 } from "reactstrap";
 class LeaveList extends React.Component {
@@ -108,12 +107,8 @@ class LeaveList extends React.Component {
 
     return (
 
-      <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-        className=" py-2 py-sm-3 ">
-        <Sidebar />
-        <h1 style={{ textAlign: 'center', marginLeft: '150px', color: '#F3A4B4' }}>Employee Leave List</h1>
-
-        <Col lg="9" md="9" style={{ width: '996px', marginLeft: "-2rem", paddingTop: "px", position: 'absolute' }}>
+     <>
+         <Container fluid>
 
           <LeaveTable
             leaves={data}
@@ -124,6 +119,7 @@ class LeaveList extends React.Component {
             loading={this.state.loading}
 
           />
+          </Container>
           {/* {this.renderLoadButton('More')} */}
           {/* <Button variant="contained" disabled={this.state.loadstatus} onClick={this.onloadmore} style={{
           zIndex: '1001', marginLeft: '180px'
@@ -131,8 +127,7 @@ class LeaveList extends React.Component {
         Load more
       </Button> */}
 
-        </Col>
-      </div>
+       </>
     );
   }
 }

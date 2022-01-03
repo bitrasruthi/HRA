@@ -11,7 +11,7 @@ import {
   Col,
 } from "reactstrap";
 
-class EProcard extends React.Component {
+class EProcard2 extends React.Component {
   state = {
     lastMonthHours: '',
     lastWeekHours: '',
@@ -22,7 +22,7 @@ async componentDidMount() {
 
     try {
         const dd = await getemppro();
-        
+        console.log(dd);
         await this.setState({ lastMonthHours: dd.data.lastMonthHours, lastWeekHours: dd.data.lastWeekHours });
     }
     catch (ex) {
@@ -34,7 +34,7 @@ async componentDidMount() {
 }
   render() {
     return (
-      <Card className="text-center card-stats mb-6 mb-xl-0">
+      <Card className=" text-center card-stats mb-6 mb-xl-0">
       <CardBody>
         <Row>
           <div className="col">
@@ -49,7 +49,7 @@ async componentDidMount() {
             </div>
             <div className='mt-3'>
             <span className="cardtry ml h2 font-weight-bold mb-0">
-            {this.state.lastMonthHours || 'Loading...'}
+            {this.state.lastWeekHours || 'Loading...'}
             </span>
             </div>
             
@@ -136,4 +136,4 @@ async componentDidMount() {
   }
 }
 
-export default EProcard;
+export default EProcard2;

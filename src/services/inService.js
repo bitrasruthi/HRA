@@ -2,7 +2,7 @@ import http from './httpService';
 
 
 
-const apiEndPoint = '/employee/post/inTime';
+const apiEndPoint = 'http://cghrportal.herokuapp.com/api/employee/post/inTime';
 
 function atturl(id) {
   return `${apiEndPoint}/${id}`;

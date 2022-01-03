@@ -134,7 +134,7 @@ class Icons extends Forms {
         <Row>
           <div className="col ">
             <Card className="mt-8 shadow">
-              <CardHeader className="bg-transparent">
+              <CardHeader className="bg-gradient-orange text-center">
                 <h3 className="mb-0">Enter Employee Details Below:</h3>
               </CardHeader> 
               <CardBody className="px-lg-3 py-sm-5">
@@ -176,14 +176,15 @@ class Icons extends Forms {
                 {this.renderInput("AgreementYears", "Agreement Years", 'number', '3', '0')}
               </Col>
               </Row>
-              <Col className="text-right" xs="4" >
-                <Button disabled={loadstatus}
-                className="text-center"
-                color="default"
+              <div className="text-center" xs="4" >
+                <Button 
+                disabled={loadstatus}
+                className="text-center bg-success border-0"
+                
                 >
                   Add
                 </Button>
-              </Col>
+              </div>
             </Form>
           </CardBody>
             </Card>

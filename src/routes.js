@@ -12,6 +12,7 @@ import ELogin  from 'views/examples/ELogin.js';
 import LeaveList from "views/examples/Profile";
 import EmpWorkingStas from './components/Admin Files/Employee Working Stats/empWorkingStats';
 import Header  from 'components/Headers/Header.js';
+import TerminateEmp from './components/Admin Files/Terminate Emp/terminateEmp';
 
 var routes = [
   {
@@ -22,37 +23,37 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/icons",
+    path: "/addnew",
     name: "Add New Employee",
-    icon: "ni ni-planet text-blue",
+    icon: "ni ni-circle-08 text-success",
     component: Icons,
     layout: "/admin",
   },
   {
     path: "/maps",
     name: "Employee List",
-    icon: "ni ni-pin-3 text-orange",
+    icon: "ni ni-bullet-list-67 text-warning",
     component: Maps,
     layout: "/admin",
   },
   {
-    path: "/user-profile",
+    path: "/leavelist",
     name: "Leave List",
-    icon: "ni ni-single-02 text-yellow",
-    component: LeaveList,
+    icon: "ni ni-bullet-list-67 text-info",
+    component: Profile,
     layout: "/admin",
   },
   {
-    path: "/tables",
+    path: "/terminatedlist",
     name: "Terminated List",
-    icon: "ni ni-bullet-list-67 text-red",
-    component: Tables,
+    icon: "fas fa-user-slash text-red",
+    component: TerminateEmp,
     layout: "/admin",
   },
   {
     path: "/workingstats",
     name: "Working Stats",
-    icon: "ni ni-key-25 text-info",
+    icon: "ni ni-chart-bar-32 text-purple",
     component: EmpWorkingStas,
     layout: "/admin",
   },

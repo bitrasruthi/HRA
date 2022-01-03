@@ -94,10 +94,8 @@ class Holidays extends Forms {
     return (
       <>
       {/* Page content */}
-      <Container className="" fluid>
-        <Row>
-          <div className="mt-8 col">
-            <Card className="shadow border-0">
+      <Container fluid>
+       
             <HoliTable
               holidays={holidays}
               sortColumn={sortColumn}
@@ -105,9 +103,7 @@ class Holidays extends Forms {
               disabled={this.state.loadmore}
               loading={this.state.loading}
             />
-            </Card>
-            </div>
-            </Row>
+           
             </Container>
             </>
          

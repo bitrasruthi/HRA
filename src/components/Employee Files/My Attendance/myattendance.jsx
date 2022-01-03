@@ -1,18 +1,18 @@
 import React from "react";
 import EmpTable from "./attTable";
-import get_attlist, { get_moreattlist } from "../../reduxstore/actions/attAction";
-import emp from "../../services/empservice";
+import get_attlist, { get_moreattlist } from "../../../reduxstore/actions/attAction";
+import emp from "../../../services/empservice";
 import { connect } from "react-redux";
 import Joi from "joi-browser";
-import ESidebar from "../Sidebar/eSidebar";
 import { toast } from "react-toastify";
 import Forms from "components/Common/form";
-import ReactLoading from "react-loading";
-import moment from "moment";
+
 
 
 import {
   Button,
+  Container,
+  Row,
   Card,
   CardBody,
   Form,
@@ -129,25 +129,21 @@ class AttList extends Forms {
 
   render() {
     const { sortColumn, employess } = this.state;
-    return (
-      <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-        className=" py-2 py-sm-3 ">
-        <ESidebar />
-        <h1 style={{ textAlign: 'center', color: '#F3A4B4', marginLeft: '0px' }}>My Attendance</h1>
-
-        <Col lg="8" md="7" style={{ width: '624px', marginLeft: "3rem", paddingTop: "px", position: 'absolute', }}>
-
+    return ( <>
+    {/* Page content */}
+    <Container fluid>
+     
           <EmpTable
             employess={employess}
             sortColumn={sortColumn}
             onSort={this.handleSort}
             onload={this.onloadmore}
             disabled={this.state.loadstatus}
-            loading={this.state.loading}
           />
-        </Col>
+        
+        </Container>
 
-      </div>
+      </>
     );
   }
 }

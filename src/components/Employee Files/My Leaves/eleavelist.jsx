@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
-import get_empleavelist, { get_moreempleavelist } from "../../reduxstore/actions/empleaveTable";
+import get_empleavelist, { get_moreempleavelist } from "../../../reduxstore/actions/empleaveTable";
 
 import ELeavsTable from "./eleavetable";
 import ReactLoading from "react-loading";
@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 
 import {
   Col,
+  Container, Row, Card
 } from "reactstrap";
 
 
@@ -95,11 +96,10 @@ class ELeavsList extends React.Component {
   render() {
     const { sortColumn, leaves } = this.state;
     return (
-      <div style={{ height: '', position: "absolute", left: '0', width: '100%', }}
-        className=" py-2 py-sm-3 ">
-        <h2 style={{ textAlign: 'center', color: '#F3A4B4', marginLeft: '5rem' }}>My Leave List</h2>
-        <Col lg="9" md="9" style={{ width: '757px', marginLeft: "5rem", paddingTop: "px", position: 'absolute' }}>
-          <ELeavsTable
+      <>
+      {/* Page content */}
+      <Container className="" fluid>
+            <ELeavsTable
             leaves={leaves}
             sortColumn={sortColumn}
             onSort={this.handleSort}
@@ -107,11 +107,11 @@ class ELeavsList extends React.Component {
             disabled={this.state.loadstatus}
             loading={this.state.loading}
           />
+       
+        </Container>
 
-        </Col>
 
-
-      </div>
+      </>
     );
   }
 }

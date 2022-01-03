@@ -1,4 +1,3 @@
-import ESidebar from 'components/Sidebar/eSidebar';
 import React from 'react'
 import { Link } from "react-router-dom";
 // reactstrap components
@@ -21,7 +20,6 @@ import {
 class NavBar extends React.Component {
   render() {
     return <div>
-      <ESidebar />
       <div style = {{height: '625px', position: "absolute", left: '0', width: '100%',}} 
             className="header bg-gradient-purple py-2 py-sm-9 ">
 

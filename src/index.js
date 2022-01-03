@@ -25,7 +25,7 @@ ReactDOM.render(
       <Route path="/emp" render={(props) => <EmpLayout {...props} />} />
       <Route path="/empauth" render={(props) => <EmpAuthLayout {...props} />} />
 
-      <App/>
+      {/* <App/> */}
     </Switch>
   </BrowserRouter>,
   </Provider>

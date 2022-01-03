@@ -1,5 +1,6 @@
-import Table from "../Common/table";
+import Table from "../../Common/table";
 import React from "react";
+import Tables  from 'components/Common/table';
 
 class EmpTable extends React.Component {
   columns = [
@@ -26,7 +27,7 @@ class EmpTable extends React.Component {
     const { employess, sortColumn, onSort, onload, disabled, loading } = this.props;
     return (
       <div>
-        <Table
+        <Tables
           columns={this.columns}
           data={employess}
           sortColumn={sortColumn}

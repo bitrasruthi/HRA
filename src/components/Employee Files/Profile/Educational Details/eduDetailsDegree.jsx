@@ -2,7 +2,6 @@ import React from 'react';
 import { toast } from 'react-toastify'
 import _ from 'lodash'
 
-import paginate from "../Common/paginate";
 import Joi from 'joi-browser';
 import Forms from 'components/Common/form';
 import { updateEduDetails } from 'services/eduService';
@@ -17,7 +16,6 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import ESidebar from 'components/Sidebar/eSidebar';
 import EduCard from './eduCard';
 // core components
 
@@ -52,21 +50,6 @@ class EduDetails extends Forms {
     this.setState({ sortColumn });
   };
 
-  getPageData = () => {
-    const {
-      pageSize,
-      currentPage,
-      employess: allemployess,
-
-      sortColumn,
-    } = this.state;
-
-    let filtered = allemployess;
-
-    const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
-    const employess = paginate(sorted, currentPage, pageSize);
-    return { totalCount: filtered.length, data: employess };
-  };
 
 
   componentDidMount() {

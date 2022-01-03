@@ -36,10 +36,11 @@ class TableBody extends React.Component {
     const { data, columns, onload, disabled } = this.props;
     return (
       <>
-        <tbody className="text-center table-responsive-sm">
+        <tbody className="text-center">
 
           {data.map((item) => (
             <tr  key={item._id}>
+              
               {columns.map((column) => (
                 <td  key={this.createkey(item, column)}>
                   {this.renderCell(item, column)}

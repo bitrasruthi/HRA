@@ -1,7 +1,6 @@
 import React from "react";
-import Table from "../Common/table";
+import Table from "../../Common/table";
 
-import ESidebar from './../Sidebar/eSidebar';
 
 class ELeavsTable extends React.Component {
   columns = [
@@ -37,7 +36,6 @@ class ELeavsTable extends React.Component {
     const { leaves, sortColumn, onSort, onload, disabled, loading } = this.props;
     return (
       <div>
-        <ESidebar />
         
         <Table
           columns={this.columns}

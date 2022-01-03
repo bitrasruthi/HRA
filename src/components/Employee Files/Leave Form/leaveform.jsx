@@ -2,11 +2,10 @@ import React from "react";
 // import { makeStyles } from "@material-ui/core/styles";
 import { toast } from "react-toastify";
 
-import ESidebar from "../Sidebar/eSidebar";
 import Joi from "joi-browser";
 import { applyLeave } from "services/leaveService";
 
-import Forms from "../Common/form";
+import Forms from "../../Common/form";
 import {
   Button,
   Card,
@@ -15,6 +14,7 @@ import {
   Input,
   CardBody,
   Col,
+  Container, Row,
   Form,
 } from "reactstrap";
 
@@ -105,41 +105,46 @@ class LeaveForm extends Forms {
     const { options, To, maxdate, today } = this.state;
     const { from_Date } = this.state.data
     return (
-      <div>
-        <ESidebar />
-        {/* <h2> Leave Form </h2> <br /> */}
-        <Col lg="6" md="7" style={{ marginLeft: "25%", paddingTop: "auto", position: 'absolute' }}>
-          <Card className="bg-secondary shadow border-0" >
-            <CardHeader className="bg-gradient-purple border-0">
-              <Col style={{ marginLeft: '220px', paddingBottom: '10px' }} xs="8">
-                <h3 className="mb--3">Leave Form</h3>
-              </Col>
-
+      <>
+      <Container className="" fluid>
+        {/* Table */}
+        <Row>
+          <div className="col ">
+            <Card className="mt-8 shadow">
+            <CardHeader className="bg-gradient-orange text-center">
+                <h3 className="mb-0">Leave Form</h3>
             </CardHeader>
-            <CardBody style={{}} className="px-lg-3 py-sm-5">
+            <CardBody className="px-lg-3 py-sm-5">
               <Form role="form" onSubmit={this.handleSubmit}>
-
-                <Col sm={{ size: 6 }} style={{ marginLeft: '3px', marginTop: '-0px', zIndex: 1001 }}>
+              <Row>
+                <Col lg='6'>
                   {this.renderInput("from_Date", "From Date", "date", maxdate, today)}
                 </Col>
 
-                <Col sm={{ size: 6 }} style={{ marginLeft: '300px', marginTop: '-100px' }} className='mr-sm-2'>
+                <Col lg='6'>
                   {this.renderInput("to_Date", "To Date", "date", maxdate, from_Date)}
                 </Col>
-
-                <Col sm={{ size: 8 }} style={{ marginLeft: 'px', marginTop: '-0px' }} className='mr-sm-2'>
+                </Row>
+              <Row>
+                <Col lg='6'>
                   {this.renderDropdown("leave_type", "Leave Type", options)}
                 </Col>
 
-                <Col sm={{ size: 26 }} style={{ marginLeft: '310px', marginTop: '-200px' }} className='mr-sm-2'>
+                <Col lg='6'>
                   {this.renderDropdown("To", "To", To)}
                 </Col>
-                <Col sm={{ size: 12 }} style={{ marginLeft: '3px', marginTop: '-0px' }} className='mr-sm-2'>
+                </Row>
+                <Row>
+
+                <Col >
                   {this.renderInput("subject", "Subject:")}
                 </Col>
-                <Col sm={{ size: 12 }} style={{ height: '', marginLeft: '3px', marginTop: '-0px' }} className='mr-sm-2'>
+                </Row>
+                <Row>
+                <Col >
                   {this.renderInput("reason", "Reason")}
                 </Col>
+                </Row>
 
 
 
@@ -155,8 +160,10 @@ class LeaveForm extends Forms {
               </Form>
             </CardBody>
           </Card>
-        </Col>
-      </div>
+          </div>
+          </Row>
+          </Container>
+      </>
     );
   }
 }

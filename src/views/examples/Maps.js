@@ -93,10 +93,8 @@ class Employees extends React.Component {
   return (
     <>
       {/* Page content */}
-      <Container className="" fluid>
-        <Row>
-          <div className="mt-8 col">
-            <Card className="shadow border-0">
+      <Container fluid>
+       
             <EmployeeTable
             employees={data}
             sortColumn={sortColumn}
@@ -106,9 +104,7 @@ class Employees extends React.Component {
             loading={this.state.loading}
           // onDelete={this.handleDelete}
           />
-            </Card>
-          </div>
-        </Row>
+         
       </Container>
     </>
   );

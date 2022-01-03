@@ -106,11 +106,10 @@ class EmpWorkingStas extends Forms {
   render() {
     const { sortColumn, employees } = this.state
     return  <>
-    {/* Page content */}
-    <Container className="mt" fluid>
-    <Row>
-        <div className="mt-8 col">
-          <Card className="shadow border-0">
+     
+      {/* Page content */}
+      <Container fluid>
+       
         <Hrstable
           employees={employees}
           sortColumn={sortColumn}
@@ -118,9 +117,7 @@ class EmpWorkingStas extends Forms {
           disabled={this.state.loadmore}
           loading={this.state.loading}
         />
-  </Card>
-  </div>
-  </Row>
+  
   </Container>
       {/* <Col lg="3" md="3" style={{ marginLeft: "75%", marginTop: "auto", position: "fixed", }}>
         <Card className="card__wrap--inner bg-secondary shadow border-0">

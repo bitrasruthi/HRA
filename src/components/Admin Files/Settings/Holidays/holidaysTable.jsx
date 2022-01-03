@@ -3,6 +3,7 @@ import React from "react";
 import DeleteHoil from "./deleteholi";
 import { Link } from "react-router-dom";
 import { Modal } from 'react-responsive-modal';
+import Tables  from 'components/Common/table';
 
 
 class HoliTable extends React.Component {
@@ -53,7 +54,7 @@ class HoliTable extends React.Component {
     const { holidays, sortColumn, onSort, disabled, loading } = this.props;
     return (
       <div>
-        <Table
+        <Tables
           columns={this.columns}
           data={holidays}
           sortColumn={sortColumn}
