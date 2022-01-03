@@ -3,7 +3,7 @@ import React from "react";
 import DeleteHoil from "./deleteholi";
 import { Link } from "react-router-dom";
 import { Modal } from 'react-responsive-modal';
-import Tables  from 'components/Common/table';
+import Tables from 'components/Common/table';
 import { toast } from "react-toastify";
 import { deletehoil } from "services/settings";
 import {
@@ -25,7 +25,7 @@ class HoliTable extends React.Component {
   onClickButton = e => {
     // e.preventDefault()
     this.setState({ openModal: true })
-    // console.log(e.SERIAL_NO - 1)
+    console.log(e.SERIAL_NO - 1)
     this.setState({ hoilidex: e.SERIAL_NO - 1 })
     // const dd = this.props.match.params.id 
     // console.log(this);
@@ -58,19 +58,19 @@ class HoliTable extends React.Component {
   doSubmit = async (emp) => {
     this.setState({ disabled: true })
     try {
-        const id = this.props.hoilidex
-        console.log(id)
-        await deletehoil({ index: id })
+      const id = this.state.hoilidex
+      console.log(id)
+      await deletehoil({ index: id })
 
     } catch (ex) {
-        if (ex.response && ex.response.status === 400) {
-            const errors = { ...this.state.errors };
-            toast('somthing worng')
-            errors.EmployeeId = ex.response.data.data;
-            this.setState({ errors });
-        }
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        toast('somthing worng')
+        errors.EmployeeId = ex.response.data.data;
+        this.setState({ errors });
+      }
     }
-};
+  };
 
   constructor() {
     super();
@@ -97,28 +97,28 @@ class HoliTable extends React.Component {
           {/* <DeleteHoil
             hoilidex={this.state.hoilidex}
           /> */}
-      <div className="pt-2" >
-                    <Card className="mt-2 bg-white shadow border-0" >
-                        <CardBody  className="px-lg-3 py-sm-5">
-                            <Form role="form" onSubmit={this.handleSubmit}>
-                                <h3> Are you sure you want to delete?</h3>
-                                <div className="text-center mt-3"  >
-                                    <Button className="bg-teal border-0" disabled={this.state.disabled} variant="contained" onClick={this.doSubmit}>
-                                        Yes
-                                    </Button>
-                                    <Button className="bg-cyan border-0" disabled={this.state.disabled} variant="contained" onClick={this.onCloseModal}>
-                                        No
-                                    </Button>
+          <div className="pt-2" >
+            <Card className="mt-2 bg-white shadow border-0" >
+              <CardBody className="px-lg-3 py-sm-5">
+                <Form role="form" onSubmit={this.handleSubmit}>
+                  <h3> Are you sure you want to delete?</h3>
+                  <div className="text-center mt-3"  >
+                    <Button className="bg-teal border-0" disabled={this.state.disabled} variant="contained" onClick={this.doSubmit}>
+                      Yes
+                    </Button>
+                    <Button className="bg-cyan border-0" disabled={this.state.disabled} variant="contained" onClick={this.onCloseModal}>
+                      No
+                    </Button>
 
-                                </div>
+                  </div>
 
-                            </Form>
-                        </CardBody>
+                </Form>
+              </CardBody>
 
-                    </Card>
-                <div>
-                </div>
+            </Card>
+            <div>
             </div>
+          </div>
 
         </Modal>
       </div>

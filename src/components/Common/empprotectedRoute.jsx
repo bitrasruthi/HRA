@@ -16,7 +16,7 @@ const EmpProtectedRoute = ({ path, component: Component, render, ...rest }) => {
           );
         return (<Redirect
           to={{
-            pathname: "/elogin",
+            pathnme: "empauth/elogin",
             state: { from: props.location },
           }}
         />)

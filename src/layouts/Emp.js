@@ -7,8 +7,7 @@ import { Container } from "reactstrap";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import AdminFooter from "components/Footers/AdminFooter.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-
-
+import EmpProtectedRoute from '../components/Common/empprotectedRoute'
 import Holidays from './../components/Admin Files/Settings/Holidays/holidays';
 import routes3 from './../routes3';
 import EmpNavbar from './../components/Navbars/EmpNavbar';
@@ -28,7 +27,7 @@ const Emp = (props) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/emp") {
         return (
-          <Route
+          <EmpProtectedRoute
             path={prop.layout + prop.path}
             component={prop.component}
             key={key}
@@ -72,7 +71,7 @@ const Emp = (props) => {
         />
         <Switch>
           {getRoutes(routes3)}
-          <Redirect from="*" to="/emp/index" />
+          <Redirect from="*" to="/empauth/elogin" />
           {/* <Route path="/admin/holidays" component={Holidays} /> */}
 
         </Switch>

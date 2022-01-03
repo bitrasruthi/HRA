@@ -11,6 +11,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import routes from "routes.js";
 import routes2 from './../routes2';
 import Holidays from './../components/Admin Files/Settings/Holidays/holidays';
+import ProtectedRoute from '../components/Common/protectedRoute'
 
 const Admin = (props) => {
   const mainContent = React.useRef(null);
@@ -26,7 +27,7 @@ const Admin = (props) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
-          <Route
+          <ProtectedRoute
             path={prop.layout + prop.path}
             component={prop.component}
             key={key}
@@ -63,7 +64,18 @@ const Admin = (props) => {
         return routes[i].name;
       }
     }
-    return "Brand";
+    return "";
+  };
+  const getBrandText2 = (path) => {
+    for (let i = 0; i < routes2.length; i++) {
+      if (
+        props.location.pathname.indexOf(routes2[i].layout + routes2[i].path) !==
+        -1
+      ) {
+        return routes2[i].name;
+      }
+    }
+    return "";
   };
 
   return (
@@ -82,11 +94,12 @@ const Admin = (props) => {
         <AdminNavbar
           {...props}
           brandText={getBrandText(props.location.pathname)}
+          brandText2={getBrandText2(props.location.pathname)}
         />
         <Switch>
           {getRoutes(routes)}
           {getRoutes2(routes2)}
-          <Redirect from="*" to="/admin/index" />
+          <Redirect from="*" to="/auth/index" />
           {/* <Route path="/admin/holidays" component={Holidays} /> */}
 
         </Switch>

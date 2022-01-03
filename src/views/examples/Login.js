@@ -53,6 +53,7 @@ class Login extends Forms {
 
 
   render() {  
+    if(auth.getCurrentUser()) return window.location = "/admin/index";
   return (
     <>
       <Col lg="" md="">
@@ -97,7 +98,7 @@ class Login extends Forms {
           </Col>
         </Row>
       </Col>
-    </>
+    </>  
   );
 }
 };

@@ -56,6 +56,7 @@ class ELogin extends Forms {
     };
 
   render() {  
+    // if(empauth.getCurrentUser()) return  window.location = "/admin/index";
   return (
     <>
       <Col lg="" md="">
