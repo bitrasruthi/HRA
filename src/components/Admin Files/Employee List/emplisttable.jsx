@@ -37,9 +37,7 @@ class EmployeeTable extends React.Component {
       path: "EmployeeId",
       label: "Employee Id",
 
-      content: (emp) => (
-        <Link to={`/empattlist/${emp.EmployeeId}`}> {emp.EmployeeId}</Link>
-      ),
+     
     },
 
     { path: "EmployeeName", label: "Name" },

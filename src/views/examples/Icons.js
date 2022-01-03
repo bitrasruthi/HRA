@@ -105,7 +105,7 @@ class Icons extends Forms {
       await register(newItem);
       toast.success("Employee Added");
       setTimeout(() => {
-        window.location = state ? state.from.pathname : "/dashboard";
+        window.location = state ? state.from.pathname : "/admin/index";
       }, 2000);
       const { state } = this.props.location;
       // await get_employeelist();

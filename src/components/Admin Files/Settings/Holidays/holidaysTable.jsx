@@ -4,7 +4,16 @@ import DeleteHoil from "./deleteholi";
 import { Link } from "react-router-dom";
 import { Modal } from 'react-responsive-modal';
 import Tables  from 'components/Common/table';
-
+import { toast } from "react-toastify";
+import { deletehoil } from "services/settings";
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  Form,
+  Col,
+} from "reactstrap";
 
 class HoliTable extends React.Component {
 
@@ -32,7 +41,7 @@ class HoliTable extends React.Component {
       label: 'Actions',
       content: (hoil) => (
         <button className="btn bg-pink btn-sm" onClick={() => this.onClickButton(hoil)} >
-          <Link style={{ color: 'white' }} to={`/holidays/${hoil.SERIAL_NO}`}>
+          <Link style={{ color: 'white' }} to={`/admin/holidays/${hoil.SERIAL_NO}`}>
             Delete</Link></button>
       ),
     }
@@ -44,6 +53,23 @@ class HoliTable extends React.Component {
   componentDidMount() {
     this.setState({ isLoading: false });
   }
+
+//   doSubmit = async (emp) => {
+//     this.setState({ disabled: true })
+//     try {
+//         const id = this.props.hoilidex
+//         console.log(id)
+//         await deletehoil({ index: id })
+
+//     } catch (ex) {
+//         if (ex.response && ex.response.status === 400) {
+//             const errors = { ...this.state.errors };
+//             toast('somthing worng')
+//             errors.EmployeeId = ex.response.data.data;
+//             this.setState({ errors });
+//         }
+//     }
+// };
 
   constructor() {
     super();
@@ -63,9 +89,31 @@ class HoliTable extends React.Component {
           loading={loading}
         />
         <Modal open={this.state.openModal} onClose={this.onCloseModal}>
-          <DeleteHoil
+          {/* <DeleteHoil
             hoilidex={this.state.hoilidex}
-          />
+          /> */}
+      <div className="pt-2" >
+                    <Card className="mt-2 bg-white shadow border-0" >
+                        <CardBody  className="px-lg-3 py-sm-5">
+                            <Form role="form" onSubmit={this.handleSubmit}>
+                                <h3> Are you sure you want to delete?</h3>
+                                <div className="text-center mt-3"  >
+                                    <Button className="bg-teal border-0" disabled={this.state.disabled} variant="contained" onClick={this.doSubmit}>
+                                        Yes
+                                    </Button>
+                                    <Button className="bg-cyan border-0" disabled={this.state.disabled} variant="contained" onClick={this.onCloseModal}>
+                                        No
+                                    </Button>
+
+                                </div>
+
+                            </Form>
+                        </CardBody>
+
+                    </Card>
+                <div>
+                </div>
+            </div>
 
         </Modal>
       </div>

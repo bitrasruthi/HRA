@@ -6,7 +6,7 @@ const apiEndPointgetoff = "http://cghrportal.herokuapp.com/api/admin/get/company
 const apiEndPointsave1 = "http://cghrportal.herokuapp.com/api/admin/post/companytimings";
 const apiEndPointpostd = "http://cghrportal.herokuapp.com/api/admin/post/companydetails";
 const apiEndPointgetcomdet = "http://cghrportal.herokuapp.com/api/admin/get/companydetails";
-const deletehoild = "";
+const deletehoild = "http://cghrportal.herokuapp.com/api/admin/post/deleteHolidays";
 
 // function atturl(id) {
 //   return `${apiEndPoint}/${id}`;
@@ -17,7 +17,7 @@ export async function save(data) {
 }
 export async function deletehoil(data) {
   console.log(data)
-  // return await http.post(deletehoild, data);
+  return await http.post(deletehoild, data);
 }
 
 export async function gettime() {

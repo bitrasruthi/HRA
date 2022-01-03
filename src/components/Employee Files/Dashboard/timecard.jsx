@@ -133,7 +133,7 @@ class TimeCard extends Forms {
               >
                Today:  {new Date().toLocaleDateString()}
               </h3> */}
-              <Row className="text-center ml-3">
+              <div className="text-center ml">
                 <Button onClick={this.doIn} disabled={this.state.disabled} className="shadow-none bg-purple my-4" 
                   type="submit"
                 >
@@ -144,7 +144,7 @@ class TimeCard extends Forms {
                 >
                   Check Out
                 </Button>
-              </Row>
+              </div>
               </div>
               </Row>
               </CardBody>
