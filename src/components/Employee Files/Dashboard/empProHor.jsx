@@ -22,7 +22,7 @@ async componentDidMount() {
 
     try {
         const dd = await getemppro();
-        
+        console.log(dd);
         await this.setState({ lastMonthHours: dd.data.lastMonthHours, lastWeekHours: dd.data.lastWeekHours });
     }
     catch (ex) {

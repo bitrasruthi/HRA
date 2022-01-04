@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Joi from "joi-browser";
 import { toast } from "react-toastify";
 import Forms from "components/Common/form";
+import getCSRFToken from '../../../../src/services/httpService'
 
 
 
@@ -75,7 +76,9 @@ class AttList extends Forms {
     await this.setState({ loadstatus: true, isLoading: true, })
     try {
       if (!this.props.getattlist) {
-        await get_attlist(this.state.skip);
+        // await get_attlist(this.state.skip);
+        const tt = getCSRFToken()
+        console.log(tt);
         await this.setState({ i: this.state.i + 1 })
       }
 

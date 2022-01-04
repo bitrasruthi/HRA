@@ -39,12 +39,20 @@ export function setJwt(jwt) {
   axios.defaults.headers.common["x-auth-token"] = jwt;
 }
 
+
+const getCSRFToken = async () => {
+  const response = await axios.get('/dummy');
+  axios.defaults.headers.post['X-CSRF-Token'] = response.data.CSRFToken;
+};
+
+
 const ht = {
   get: axios.get,
   post: axios.post,
   put: axios.put,
   delete: axios.delete,
   setJwt,
+  getCSRFToken,
 };
 
 export default ht;
