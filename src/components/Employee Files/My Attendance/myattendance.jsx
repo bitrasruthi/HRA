@@ -115,35 +115,36 @@ class AttList extends Forms {
       if (ex.response && ex.response.status === 404) {
 
         toast.error(ex.response.data.data);
-        await this.setState({ loadstatus: false, loading: true })
+        await this.setState({ loadstatus: false, loading: false })
 
       }
       if (ex.response && ex.response.status === 400) {
-        console.log(ex.response.status)
         await this.setState({ loadstatus: true, i: this.state.i - 1 })
         await this.setState({ loading: true })
+        console.log(ex.response.status)
 
       }
     }
   };
 
   render() {
-    const { sortColumn, employess } = this.state;
-    return ( <>
-    {/* Page content */}
-    <Container fluid>
-     
-          <EmpTable
-            employess={employess}
-            sortColumn={sortColumn}
-            onSort={this.handleSort}
-            onload={this.onloadmore}
-            disabled={this.state.loadstatus}
-          />
-        
-        </Container>
+    const { sortColumn, employess, loading } = this.state;
+    return (<>
+      {/* Page content */}
+      <Container fluid>
 
-      </>
+        <EmpTable
+          employess={employess}
+          sortColumn={sortColumn}
+          onSort={this.handleSort}
+          onload={this.onloadmore}
+          disabled={this.state.loadstatus}
+          loading={loading}
+        />
+
+      </Container>
+
+    </>
     );
   }
 }

@@ -58,11 +58,11 @@ class HoliTable extends React.Component {
   doSubmit = async (emp) => {
     this.setState({ disabled: true })
     try {
-        const id = this.state.hoilidex
-        // console.log(id._id)
-        await deletehoil({ _id: id })
-        toast.success('Holiday Deleted!!!')
-        window.location = '/admin/holidays'
+      const id = this.state.hoilidex
+      // console.log(id._id)
+      await deletehoil({ _id: id })
+      toast.success('Holiday Deleted!!!')
+      window.location = '/admin/holidays'
 
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
@@ -83,16 +83,16 @@ class HoliTable extends React.Component {
     const { holidays, sortColumn, onSort, disabled, loading } = this.props;
     return (
       <div>
-       
-        <div  className="mt--7">
-        <Tables
-          columns={this.columns}
-          data={holidays}
-          sortColumn={sortColumn}
-          onSort={onSort}
-          disabled={disabled}
-          loading={loading}
-        />
+
+        <div className="mt--7">
+          <Tables
+            columns={this.columns}
+            data={holidays}
+            sortColumn={sortColumn}
+            onSort={onSort}
+            disabled={disabled}
+            loading={loading}
+          />
 
         </div>
         <Modal open={this.state.openModal} onClose={this.onCloseModal}>
