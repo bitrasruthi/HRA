@@ -1,9 +1,9 @@
 import http from "./httpService";
 
-const apiEndPointPost = "http://cghrportal.herokuapp.com/api/admin/post/addemployee";
-const apiEndPointGet = "http://cghrportal.herokuapp.com/api/admin/get/getall";
+const apiEndPointPost = "/admin/post/addemployee";
+const apiEndPointGet = "/admin/get/getall";
 const apiEndPointReg = "/admin/post/registerhr"
-const prohtslink  = 'http://cghrportal.herokuapp.com/api/admin/get/productionhours/week&month'
+const prohtslink  = '/admin/get/productionhours/week&month'
 
 const tokenkey = "token";
 

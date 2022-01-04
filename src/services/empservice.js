@@ -1,19 +1,19 @@
 import http from "./httpService";
 import jwtDecode from "jwt-decode";
 
-const apiEndPoint = "http://cghrportal.herokuapp.com/api/employee/post/login";
+const apiEndPoint = "/employee/post/login";
 
-const apiEndPointatt = "http://cghrportal.herokuapp.com/api/employee/get/getattendance";
+const apiEndPointatt = "/employee/get/getattendance";
 
 const apiEndPointchange =
-  "http://cghrportal.herokuapp.com/api/employee/post/changepassword";
+  "/employee/post/changepassword";
 
-const apiEndPointlogout = "http://cghrportal.herokuapp.com/api/employee/get/logout";
+const apiEndPointlogout = "/employee/get/logout";
 
 const getAttendanceser =
-  "http://cghrportal.herokuapp.com/api/admin/get/attendancestats";
+  "/admin/get/attendancestats";
 
-  const emresetpassword = 'http://cghrportal.herokuapp.com/api/admin/post/resetpassword'
+  const emresetpassword = '/admin/post/resetpassword'
 
 const tokenKey = "token";
 

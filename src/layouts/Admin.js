@@ -99,7 +99,7 @@ const Admin = (props) => {
         <Switch>
           {getRoutes(routes)}
           {getRoutes2(routes2)}
-          <Redirect from="*" to="/auth/index" />
+          <Redirect from="*" to="/auth/login" />
           {/* <Route path="/admin/holidays" component={Holidays} /> */}
 
         </Switch>

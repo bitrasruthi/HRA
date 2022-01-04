@@ -1,9 +1,9 @@
 import http from "./httpService";
 
-const apiEndPointEmp = "http://cghrportal.herokuapp.com/api/employee/post/applyleave";
-const apiEndPointEmpleaves = "http://cghrportal.herokuapp.com/api/employee/get/getleaves";
-const apiEndPointAdmin = "http://cghrportal.herokuapp.com/api/admin/get/allleaves";
-const apiEndPointAdminsta = "http://cghrportal.herokuapp.com/api/admin/post/leavestatus";
+const apiEndPointEmp = "/employee/post/applyleave";
+const apiEndPointEmpleaves = "/employee/get/getleaves";
+const apiEndPointAdmin = "/admin/get/allleaves";
+const apiEndPointAdminsta = "/admin/post/leavestatus";
 
 // export function checkOut(user) {
 //     return http.post(apiEndPoint, {outTime: user});

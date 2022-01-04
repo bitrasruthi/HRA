@@ -106,63 +106,63 @@ class LeaveForm extends Forms {
     const { from_Date } = this.state.data
     return (
       <>
-      <Container className="" fluid>
-        {/* Table */}
-        <Row>
-          <div className="col ">
-            <Card className="mt-8 shadow">
-            <CardHeader className="bg-gradient-orange text-center">
-                <h3 className="mb-0">Leave Form</h3>
-            </CardHeader>
-            <CardBody className="px-lg-3 py-sm-5">
-              <Form role="form" onSubmit={this.handleSubmit}>
-              <Row>
-                <Col lg='6'>
-                  {this.renderInput("from_Date", "From Date", "date", maxdate, today)}
-                </Col>
+        <Container className="" fluid>
+          {/* Table */}
+          <Row>
+            <div className="col ">
+              <Card className="mt-8 shadow">
+                <CardHeader className="bg-gradient-orange text-center">
+                  <h3 className="mb-0">Leave Form</h3>
+                </CardHeader>
+                <CardBody className="px-lg-3 py-sm-5">
+                  <Form role="form" onSubmit={this.handleSubmit}>
+                    <Row>
+                      <Col lg='6'>
+                        {this.renderInput("from_Date", "From Date", "date", maxdate, today)}
+                      </Col>
 
-                <Col lg='6'>
-                  {this.renderInput("to_Date", "To Date", "date", maxdate, from_Date)}
-                </Col>
-                </Row>
-              <Row>
-                <Col lg='6'>
-                  {this.renderDropdown("leave_type", "Leave Type", options)}
-                </Col>
+                      <Col lg='6'>
+                        {this.renderInput("to_Date", "To Date", "date", maxdate, from_Date)}
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col lg='6'>
+                        {this.renderDropdown("leave_type", "Leave Type", options)}
+                      </Col>
 
-                <Col lg='6'>
-                  {this.renderDropdown("To", "To", To)}
-                </Col>
-                </Row>
-                <Row>
+                      <Col lg='6'>
+                        {this.renderDropdown("To", "To", To)}
+                      </Col>
+                    </Row>
+                    <Row>
 
-                <Col >
-                  {this.renderInput("subject", "Subject:")}
-                </Col>
-                </Row>
-                <Row>
-                <Col >
-                  {this.renderInput("reason", "Reason")}
-                </Col>
-                </Row>
+                      <Col >
+                        {this.renderInput("subject", "Subject:")}
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col >
+                        {this.renderInput("reason", "Reason")}
+                      </Col>
+                    </Row>
 
 
 
-                {/* {this.renderButton("Submit")}
+                    {/* {this.renderButton("Submit")}
                  */}
-                <div style={{ textAlign: 'center' }}>
-                  <Button disabled={this.state.loadstatus} style={{ marginLeft: '0px', marginTop: '0px', background: '#B665E0', color: 'white', border: 'none' }} variant="contained" onClick={this.onApprove}>
-                    Submit
-                  </Button>
+                    <div style={{ textAlign: 'center' }}>
+                      <Button disabled={this.state.loadstatus} style={{ marginLeft: '0px', marginTop: '0px', background: '#B665E0', color: 'white', border: 'none' }} variant="contained" onClick={this.onApprove}>
+                        Submit
+                      </Button>
 
-                </div>
+                    </div>
 
-              </Form>
-            </CardBody>
-          </Card>
-          </div>
+                  </Form>
+                </CardBody>
+              </Card>
+            </div>
           </Row>
-          </Container>
+        </Container>
       </>
     );
   }

@@ -27,7 +27,7 @@ const Emp = (props) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/emp") {
         return (
-          <EmpProtectedRoute
+          <Route
             path={prop.layout + prop.path}
             component={prop.component}
             key={key}

@@ -1,8 +1,8 @@
 import http from "./httpService";
 
 
-const apiEndPointPro = "http://cghrportal.herokuapp.com/api/employee/post/add/profile";
-const apiEndPointProGet = "http://cghrportal.herokuapp.com/api/employee/get/details";
+const apiEndPointPro = "/employee/post/add/profile";
+const apiEndPointProGet = "/employee/get/details";
 
 const tokenkey = "token";
 // function atturl(id) {

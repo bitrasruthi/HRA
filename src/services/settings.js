@@ -1,12 +1,12 @@
 import http from "./httpService";
 
-const apiEndPoint = "http://cghrportal.herokuapp.com/api/admin/post/holidays";
-const apiEndPointget = "http://cghrportal.herokuapp.com/api/admin/get/holidays";
-const apiEndPointgetoff = "http://cghrportal.herokuapp.com/api/admin/get/companytimings";
-const apiEndPointsave1 = "http://cghrportal.herokuapp.com/api/admin/post/companytimings";
-const apiEndPointpostd = "http://cghrportal.herokuapp.com/api/admin/post/companydetails";
-const apiEndPointgetcomdet = "http://cghrportal.herokuapp.com/api/admin/get/companydetails";
-const deletehoild = "http://cghrportal.herokuapp.com/api/admin/post/deleteHolidays";
+const apiEndPoint = "/admin/post/holidays";
+const apiEndPointget = "/admin/get/holidays";
+const apiEndPointgetoff = "/admin/get/companytimings";
+const apiEndPointsave1 = "/admin/post/companytimings";
+const apiEndPointpostd = "/admin/post/companydetails";
+const apiEndPointgetcomdet = "/admin/get/companydetails";
+const deletehoild = "/admin/post/deleteHolidays";
 
 // function atturl(id) {
 //   return `${apiEndPoint}/${id}`;
