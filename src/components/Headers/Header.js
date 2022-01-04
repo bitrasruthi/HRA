@@ -74,10 +74,10 @@ const Header = () => {
                       </Col>
                     </Row>
                     <p className="mt-3 mb-0 text-muted text-sm">
-                      <span className="text-danger mr-2">
-                        <i className="fas fa-arrow-down" /> 
+                      <span className="text-success mr-2">
+                        <i className="fas fa-arrow-up" /> 
                       </span>{" "}
-                      <span className="text-nowrap">Week</span>
+                      <span className="text-nowrap">Last Month</span>
                     </p>
                   </CardBody>
                 </Card>
@@ -102,10 +102,10 @@ const Header = () => {
                       </Col>
                     </Row>
                     <p className="mt-3 mb-0 text-muted text-sm">
-                      <span className="text-warning mr-2">
-                        <i className="fas fa-arrow-down" /> 1.10%
+                      <span className="text-success mr-2">
+                        <i className="fas fa-arrow-up" />
                       </span>{" "}
-                      <span className="text-nowrap">Since yesterday</span>
+                      <span className="text-nowrap">Since Last Week</span>
                     </p>
                   </CardBody>
                 </Card>
