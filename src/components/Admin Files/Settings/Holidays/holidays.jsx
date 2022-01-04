@@ -32,7 +32,7 @@ class Holidays extends Forms {
     openModal: false,
     sortColumn: { path: "Date", order: "asc" },
   };
-  
+
   onClickButton = e => {
     // e.preventDefault()
     this.setState({ openModal: true })
@@ -64,22 +64,22 @@ class Holidays extends Forms {
       if (!this.props.gethoildayslist) {
         await get_hoildays();
       }
-    
+
       var dd = await this.props.gethoildayslist[0].holidays;
       // const ff = dd[0].holidays;
       var gg = dd.map(function (currentValue, Index) {
         currentValue.SERIAL_NO = Index + 1
         return currentValue
-        
+
       })
-    
+
 
       await this.setState({ holidays: dd });
 
     }
     catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        toast('400')
+        // toast('400')
       }
       if (ex.response && ex.response.status === 404) {
         toast.error(ex.response.data.data);
@@ -111,61 +111,61 @@ class Holidays extends Forms {
     const { sortColumn, holidays } = this.state;
     return (
       <>
-      {/* Page content */}
-      <div  className="text-center">
+        {/* Page content */}
+        <div className="text-center">
 
-<Button className="mt-7 bg-gradient-orange border-0 " onClick={this.onClickButton}>Add New Holiday</Button>
-</div>
-      <Container fluid>
-        
-            <HoliTable
-              holidays={holidays}
-              sortColumn={sortColumn}
-              onSort={this.handleSort}
-              disabled={this.state.loadmore}
-              loading={this.state.loading}
-            />
-           
-            </Container>
-            <Modal open={this.state.openModal} onClose={this.onCloseModal}>
+          <Button className="mt-7 bg-gradient-orange border-0 " onClick={this.onClickButton}>Add New Holiday</Button>
+        </div>
+        <Container fluid>
+
+          <HoliTable
+            holidays={holidays}
+            sortColumn={sortColumn}
+            onSort={this.handleSort}
+            disabled={this.state.loadmore}
+            loading={this.state.loading}
+          />
+
+        </Container>
+        <Modal open={this.state.openModal} onClose={this.onCloseModal}>
           {/* <DeleteHoil
             hoilidex={this.state.hoilidex}
           /> */}
-     <div className=" pt-4" >
-          <Card className="bg-secondary shadow border-0" >
-            {/* <CardHeader className="bg-gradient-teal border-0">
+          <div className=" pt-4" >
+            <Card className="bg-secondary shadow border-0" >
+              {/* <CardHeader className="bg-gradient-teal border-0">
               <Col xs="9">
                 <h3 className=" ml-4 text-center">Add New Holiday here:</h3>
               </Col>
             </CardHeader> */}
-            <CardBody className="px-lg-3 py-sm-5">
-              <Form role="form" onSubmit={this.handleSubmit}>
-                {/* {this.renderInput("EmployeeId", "Employee Id",)} */}
+              <CardBody className="px-lg-3 py-sm-5">
+                <Form role="form" onSubmit={this.handleSubmit}>
+                  {/* {this.renderInput("EmployeeId", "Employee Id",)} */}
 
                   {this.renderInput("date", "Date", 'date')}
                   {this.renderInput("festival", "Festival")}
 
-                {/* <input type="radio" name="option" id="1" value="Yes" />
+                  {/* <input type="radio" name="option" id="1" value="Yes" />
                       <input type="radio" name="option" id="2" value="No" /> */}
-                <div className="text-center " >
-                  <Button className='bg-teal border-0'disabled={this.state.disabled} variant="contained" onClick={this.handleSubmit}>
-                  Add Holiday
-                  </Button>
+                  <div className="text-center " >
+                    <Button className='bg-teal border-0' disabled={this.state.disabled} variant="contained" onClick={this.handleSubmit}>
+                      Add Holiday
+                    </Button>
 
-                </div>
+                  </div>
 
-              </Form>
-            </CardBody>
+                </Form>
+              </CardBody>
 
-          </Card>
-        <div>
-        </div>
-      </div>
+            </Card>
+            <div>
+            </div>
+          </div>
 
         </Modal>
-            
-            </>
-         
+
+      </>
+
     );
   }
 }
