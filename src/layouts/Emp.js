@@ -71,7 +71,7 @@ const Emp = (props) => {
         />
         <Switch>
           {getRoutes(routes3)}
-          <Redirect from="*" to="/empauth/elogin" />
+          <Redirect from="*" to="/emp/index" />
           {/* <Route path="/admin/holidays" component={Holidays} /> */}
 
         </Switch>

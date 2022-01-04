@@ -76,9 +76,9 @@ class AttList extends Forms {
     await this.setState({ loadstatus: true, isLoading: true, })
     try {
       if (!this.props.getattlist) {
-        // await get_attlist(this.state.skip);
-        const tt = getCSRFToken()
-        console.log(tt);
+        await get_attlist(this.state.skip);
+        // const tt = getCSRFToken()
+        // console.log(tt);
         await this.setState({ i: this.state.i + 1 })
       }
 
