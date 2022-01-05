@@ -1,9 +1,11 @@
 import http from "./httpService";
 import jwtDecode from "jwt-decode";
+import tiger from 'tiger-balm';
 
 const apiEndPoint = "/admin/post/login";
 const apiEndPointdelete = '/admin/post/removeemployee'
 const tokenKey = "token";
+
 
 // http.setJwt(getJwt());
 
@@ -35,7 +37,11 @@ export function logout() {
 export function getCurrentUser() {
   try {
     const jwt = localStorage.getItem(tokenKey);
-    return jwtDecode(jwt);
+     var PaSSD = "thisishrportalpassdcantbedecrypted";
+     var SaLt = "thisishportalsaltthatisencrypted";
+     var tiger2 = tiger.decrypt(PaSSD, SaLt,jwt);
+     console.log(tiger2)
+    return jwtDecode(tiger2);
   } catch (ex) {
     return null;
   }

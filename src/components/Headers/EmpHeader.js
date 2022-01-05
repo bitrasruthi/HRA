@@ -19,6 +19,7 @@ const EmpHeader = () => {
   
   React.useEffect(async () => { 
   const tt =  await getCurrentUser()
+  console.log(tt)
        setdata(tt.EmployeeName)
 
   const pp = await getemppro()  
